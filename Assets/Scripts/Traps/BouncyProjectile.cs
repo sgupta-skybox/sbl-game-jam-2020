@@ -6,10 +6,10 @@ public class BouncyProjectile : Projectile
 {
     Rigidbody2D rigidBody;
     // Start is called before the first frame update
-    void Awake()
+    protected override void Start()
     {
+        base.Start();
         rigidBody = GetComponent<Rigidbody2D>();
-
         if (rigidBody)
             rigidBody.AddForce(DirProjectile * Speed);
 

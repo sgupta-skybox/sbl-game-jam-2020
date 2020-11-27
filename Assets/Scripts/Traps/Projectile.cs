@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
 
     protected int playerLayerMask = 0;
 
-    void Start()
+    protected virtual void Start()
     {
         playerLayerMask = LayerMask.NameToLayer("Player");
     }
