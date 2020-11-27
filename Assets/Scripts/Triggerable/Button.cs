@@ -5,7 +5,7 @@ using UnityEngine;
 public class Button : TriggerableBase
 {
     [SerializeField]
-    public GameObject objectToTrigger;
+    public List<GameObject> objectsToTrigger;
     public int numBoxesToTrigger;
     public float timer;
     public bool playerCounts = true;
@@ -17,7 +17,7 @@ public class Button : TriggerableBase
     private float currentTimer;
     private bool timerStarted = false;
 
-    private  List<GameObject> objectsOnTop = new List<GameObject>();
+    private List<GameObject> objectsOnTop = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -43,12 +43,18 @@ public class Button : TriggerableBase
     protected override void OnTriggered() 
     {
         currentTimer = timer;
-        objectToTrigger.SetActive(false);
+        foreach (GameObject objectToTrigger in objectsToTrigger)
+        {
+            objectToTrigger.SetActive(false);
+        }
     }
 
     protected override void OnUntriggered()
     {
-        objectToTrigger.SetActive(true);
+        foreach (GameObject objectToTrigger in objectsToTrigger)
+        {
+            objectToTrigger.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -75,6 +81,7 @@ public class Button : TriggerableBase
         if (objectsOnTop.Count >= numBoxesToTrigger)
         {
             IsTriggered = true;
+            timerStarted = false;
         }
     }
 
