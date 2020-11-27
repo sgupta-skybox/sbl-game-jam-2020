@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
@@ -42,15 +43,19 @@ public class Controller : MonoBehaviour
             movementVelocity.x = horizontal * Speed;
             movementVelocity.y = vertical * Speed;
 
-            HandleGrab(Input.GetKey(KeyCode.Space));
-
-
             float dot = Vector2.Dot(movementVelocity, Vector2.up);
             float determinant = (Vector2.up.x * movementVelocity.y) - (Vector2.up.y * movementVelocity.x);
             float desiredSpriteAngle = Mathf.Atan2(determinant, dot) * Mathf.Rad2Deg;
             spriteAngle = Mathf.LerpAngle(spriteAngle, desiredSpriteAngle, Time.deltaTime * SpriteTurnSpeed);
             spriteChild.rotation = Quaternion.AngleAxis(spriteAngle, Vector3.forward);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            HandleGrab(grabComponent == null);
+        }
+        CheckGrabComponents();
+        DebugDraw();
     }
 
     void FixedUpdate()
@@ -60,25 +65,41 @@ public class Controller : MonoBehaviour
         movementVelocity = Vector2.zero;
     }
 
+    void CheckGrabComponents()
+    {
+        if( grabComponent )
+        {
+            grabComponent.Select();
+        }
+        else
+        {
+            var nearestGrabComponent = GetNearestGrabComponents();
+            if( nearestGrabComponent )
+            {
+                nearestGrabComponent.Highlight();
+            }
+        }
+    }
+
+    //[Conditional("DEBUG")]
+    void DebugDraw()
+    {
+#if UNITY_EDITOR
+        DebugExtension.DrawCircle(new Vector2(transform.position.x, transform.position.y), controllerCollider.radius * GrabRadiusMultiplier, Color.green);
+#endif
+    }
+
     void HandleGrab(bool isGrabbing)
     {
         if (isGrabbing)
         {
             if (!grabComponent)
             {
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, controllerCollider.radius * GrabRadiusMultiplier);
-                if (colliders.Length > 0)
+                grabComponent = GetNearestGrabComponents();
+                if (grabComponent)
                 {
-                    // TODO pick the grab component that you are looking at (which might not be the first in the array)
-                    foreach (Collider2D collider in colliders)
-                    {
-                        grabComponent = collider.gameObject.GetComponent<GrabComponent>();
-                        if (grabComponent)
-                        {
-                            grabComponent.gameObject.transform.SetParent(transform);
-                            break;
-                        }
-                    }
+                    grabComponent.gameObject.transform.SetParent(transform);
+                    return;
                 }
             }
         }
@@ -90,5 +111,29 @@ public class Controller : MonoBehaviour
                 grabComponent = null;
             }
         }
+    }
+
+
+    GrabComponent GetNearestGrabComponents()
+    {
+        if (grabComponent)
+            return grabComponent;
+        else
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, controllerCollider.radius * GrabRadiusMultiplier);
+            if (colliders.Length > 0)
+            {
+                // TODO pick the grab component that you are looking at (which might not be the first in the array)
+                foreach (Collider2D collider in colliders)
+                {
+                    var nearestGrabComponent = collider.gameObject.GetComponent<GrabComponent>();
+                    if (nearestGrabComponent)
+                    {
+                        return nearestGrabComponent;
+                    }
+                }
+            }
+        }
+        return null;
     }
 }
