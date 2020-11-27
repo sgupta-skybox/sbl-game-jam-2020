@@ -8,6 +8,7 @@ public class Controller : MonoBehaviour
 {
     [SerializeField]
     float Speed = 10.0f;
+    public float deathTimer;
 
     [SerializeField]
     [Range(1.0f, 2.0f)]
@@ -167,7 +168,7 @@ public class Controller : MonoBehaviour
     IEnumerator WaitAndRestart()
     {
         // suspend execution for 5 seconds
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(deathTimer);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Die()

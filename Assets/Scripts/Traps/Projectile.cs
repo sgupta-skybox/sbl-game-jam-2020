@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public Vector2 DirProjectile = Vector2.up;
     [SerializeField]
-    float Speed = 20.0f;
+    protected float Speed = 20.0f;
 
-    int playerLayerMask = 0;
+    protected int playerLayerMask = 0;
+    protected int buttonMask;
 
     void Start()
     {
         playerLayerMask = LayerMask.NameToLayer("Player");
+        buttonMask = LayerMask.NameToLayer("Button");
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-        transform.Translate(Vector2.up * Speed * Time.fixedDeltaTime);
+        transform.Translate(DirProjectile * Speed * Time.fixedDeltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -25,6 +28,10 @@ public class Projectile : MonoBehaviour
         {
             Controller playerController = other.gameObject.GetComponent<Controller>();
             playerController.Die();
+        }
+        if (Speed > 0 && other.gameObject.layer != buttonMask)
+        {
+            Destroy(gameObject);
         }
     }
 }
