@@ -29,10 +29,12 @@ public class Mimic : MonoBehaviour
 	{
 		if (upMimicDirection == leftMimicDirection ||
 			upMimicDirection == rightMimicDirection ||
-			downMimicDirection == leftMimicDirection ||
-			downMimicDirection == rightMimicDirection)
+			upMimicDirection == downMimicDirection ||
+			leftMimicDirection == rightMimicDirection ||
+			leftMimicDirection == downMimicDirection ||
+			rightMimicDirection == downMimicDirection )
 		{
-			Debug.LogWarning("Invalid mimic direction settings. Any X and Y axis movements should never be the same!");
+			Debug.LogWarning("Mimic should have all directions specified!");
 			return;
 		}
 
@@ -85,8 +87,15 @@ public class Mimic : MonoBehaviour
 		mimicPreviousPosition = mimicTransform.position;
 
 		Vector3 targetDeltaPosition = new Vector3();
-		ComputeMimicValue(deltaPosition.x > 0 ? rightMimicDirection : leftMimicDirection, Mathf.Abs(deltaPosition.x), ref targetDeltaPosition);
-		ComputeMimicValue(deltaPosition.y > 0 ? upMimicDirection : downMimicDirection, Mathf.Abs(deltaPosition.y), ref targetDeltaPosition);
+		if( deltaPosition.x != 0)
+		{
+			ComputeMimicValue(deltaPosition.x > 0 ? rightMimicDirection : leftMimicDirection, Mathf.Abs(deltaPosition.x), ref targetDeltaPosition);
+		}
+
+		if( deltaPosition.y != 0)
+		{
+			ComputeMimicValue(deltaPosition.y > 0 ? upMimicDirection : downMimicDirection, Mathf.Abs(deltaPosition.y), ref targetDeltaPosition);
+		}
 
 		myTransform.position += targetDeltaPosition * speedModifier;
 	}
