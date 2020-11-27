@@ -123,15 +123,34 @@ public class Controller : MonoBehaviour
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, controllerCollider.radius * GrabRadiusMultiplier);
             if (colliders.Length > 0)
             {
+                float closestDistSq = float.MaxValue;
+                GrabComponent closestComp = null;
                 // TODO pick the grab component that you are looking at (which might not be the first in the array)
                 foreach (Collider2D collider in colliders)
                 {
-                    var nearestGrabComponent = collider.gameObject.GetComponent<GrabComponent>();
-                    if (nearestGrabComponent)
+                    var grabComponent = collider.gameObject.GetComponent<GrabComponent>();
+                    if (grabComponent)
                     {
-                        return nearestGrabComponent;
+                        float distSq = (transform.position - grabComponent.transform.position).sqrMagnitude;
+                        if (distSq < closestDistSq)
+                        {
+                            closestDistSq = distSq;
+                            closestComp = grabComponent;
+                        }
+                        else if(distSq.IsClosed(closestDistSq))
+                        {
+                            Vector3 forward = transform.TransformDirection(movementVelocity);
+                            Vector3 dirGrabComp = (grabComponent.transform.position - transform.position).normalized;
+                            Vector3 dirClosestGrabComp = (closestComp.transform.position - transform.position).normalized;
+                            float angleBetween = Vector3.Dot(forward, dirGrabComp);
+                            if (angleBetween > Vector3.Dot(forward, dirClosestGrabComp))
+                            {
+                                closestComp = grabComponent;
+                            }
+                        }
                     }
                 }
+                return closestComp;
             }
         }
         return null;
