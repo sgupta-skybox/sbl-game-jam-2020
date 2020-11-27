@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
@@ -21,6 +22,8 @@ public class Controller : MonoBehaviour
     Transform spriteChild;
     float spriteAngle = 0.0f;
 
+    MeshRenderer diedText;
+
     [SerializeField]
     float SpriteTurnSpeed = 5.0f;
  
@@ -30,6 +33,11 @@ public class Controller : MonoBehaviour
         controllerCollider = GetComponent<CircleCollider2D>();
         controllerBody = GetComponent<Rigidbody2D>();
         spriteChild = transform.GetChild(0);
+        GameObject gameOver = GameObject.Find("GameOver");
+        if (gameOver)
+        {
+            diedText = gameOver.GetComponent<MeshRenderer>();
+        }
     }
 
     void Update()
@@ -154,5 +162,21 @@ public class Controller : MonoBehaviour
             }
         }
         return null;
+    }
+
+    IEnumerator WaitAndRestart()
+    {
+        // suspend execution for 5 seconds
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Die()
+	{
+        if (diedText)
+        {
+            diedText.enabled = true;
+        }
+        Speed = 0;
+        StartCoroutine(WaitAndRestart());
     }
 }

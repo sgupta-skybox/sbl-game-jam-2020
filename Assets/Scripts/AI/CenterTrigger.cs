@@ -32,12 +32,6 @@ public class CenterTrigger : MonoBehaviour
 		diedText = GameObject.Find("GameOver").GetComponent<MeshRenderer>();
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
 	public void Activate()
 	{
 		Debug.Assert(state == CenterState.Triggered);
@@ -53,6 +47,7 @@ public class CenterTrigger : MonoBehaviour
 		{
 			if(collision.gameObject.tag == "Assasin")
 			{
+				collision.gameObject.GetComponent<Controller>().Die(); // Controller would need to be connected
 				diedText.enabled = true;
 				return;
 			}
@@ -61,6 +56,7 @@ public class CenterTrigger : MonoBehaviour
 			{
 				mimic.enabled = true;
 			}
+
 			untrigerred.enabled = false;
 			state = CenterState.Triggered;
 		}
