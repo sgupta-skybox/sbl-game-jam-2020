@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToTrigger: {fileID: 0}
-  numBoxesToTrigger: 0
+  numBoxesToTrigger: 1
   timer: 0
 --- !u!222 &3014450653359576284
 CanvasRenderer:

@@ -8,6 +8,8 @@ public class Button : TriggerableBase
     public GameObject objectToTrigger;
     public int numBoxesToTrigger;
     public float timer;
+    public bool playerCounts = true;
+    public bool boxCounts = true;
 
     private int playerLayerMask = 0;
     private int movableObjectLayerMask = 0;
@@ -51,31 +53,48 @@ public class Button : TriggerableBase
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == playerLayerMask || other.gameObject.layer == movableObjectLayerMask)
+        if (playerCounts && other.gameObject.layer == playerLayerMask)
         {
-            // don't add same object again
-            if (objectsOnTop.Find(obj => obj.name == other.name))
-            {
-                return;
-            }
+            OnTriggerEnterLogic(other);
+        }
+        else if (boxCounts && other.gameObject.layer == movableObjectLayerMask)
+        {
+            OnTriggerEnterLogic(other);
+        }
+    }
 
-            objectsOnTop.Add(other.gameObject);
-            if (objectsOnTop.Count >= numBoxesToTrigger)
-            {
-                IsTriggered = true;
-            }
+    private void OnTriggerEnterLogic(Collider2D other)
+    {
+        // don't add same object again
+        if (objectsOnTop.Find(obj => obj.name == other.name))
+        {
+            return;
+        }
+
+        objectsOnTop.Add(other.gameObject);
+        if (objectsOnTop.Count >= numBoxesToTrigger)
+        {
+            IsTriggered = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.layer == playerLayerMask || other.gameObject.layer == movableObjectLayerMask)
+        if ((playerCounts && other.gameObject.layer == playerLayerMask) ||
+            (boxCounts && other.gameObject.layer == movableObjectLayerMask))
         {
-            objectsOnTop.Remove(other.gameObject);
+            OnTriggerExitLogic(other);
+        }
+    }
+
+    private void OnTriggerExitLogic(Collider2D other)
+    {
+        if (objectsOnTop.Remove(other.gameObject))
+        {
             if (objectsOnTop.Count < numBoxesToTrigger)
             {
                 timerStarted = true;
             }
-        }
+        }        
     }
 }
