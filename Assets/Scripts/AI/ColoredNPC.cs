@@ -29,10 +29,17 @@ public class ColoredNPC : MonoBehaviour
 		if (!GetComponent<Mimic>())
 			return;
 
-		if (collision.gameObject.GetComponent<Mimic>() && gameObject.tag != "Assasin")
+		else if (collision.gameObject.tag == "Assasin")
+		{
 			Die();
+		}
 
-		if ( collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<Controller>())
+		else if (collision.gameObject.GetComponent<Mimic>() && gameObject.tag != "Assasin")
+		{
+			Die();
+		}
+
+		else if ( collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<Controller>())
 		{
 			if( gameObject.tag == "Assasin")
 			{
