@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7261682691901459141}
   - component: {fileID: 3173628224053124749}
   - component: {fileID: 350410445606059502}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: BouncyProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

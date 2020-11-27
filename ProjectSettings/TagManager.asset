@@ -20,12 +20,9 @@ TagManager:
   - MovableObject
   - ColoredEnemy
   - AssasinEnemy
-  - 
+  - Spawner
   - Damage
-  - 
-  - 
-  - 
-  - 
+  - Projectile
   - 
   - 
   - 
