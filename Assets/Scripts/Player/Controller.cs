@@ -33,7 +33,11 @@ public class Controller : MonoBehaviour
         controllerCollider = GetComponent<CircleCollider2D>();
         controllerBody = GetComponent<Rigidbody2D>();
         spriteChild = transform.GetChild(0);
-        diedText = GameObject.Find("GameOver").GetComponent<MeshRenderer>();
+        GameObject gameOver = GameObject.Find("GameOver");
+        if (gameOver)
+        {
+            diedText = gameOver.GetComponent<MeshRenderer>();
+        }
     }
 
     void Update()
@@ -168,7 +172,10 @@ public class Controller : MonoBehaviour
     }
     public void Die()
 	{
-        diedText.enabled = true;
+        if (diedText)
+        {
+            diedText.enabled = true;
+        }
         Speed = 0;
         StartCoroutine(WaitAndRestart());
     }
