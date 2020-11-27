@@ -23,6 +23,7 @@ public class Mimic : MonoBehaviour
 	private Vector3 mimicPreviousPosition;
 
 	private Transform myTransform;
+	private Rigidbody2D myRigidBody;
 
 	// Start is called before the first frame update
 	void Start()
@@ -52,6 +53,7 @@ public class Mimic : MonoBehaviour
 		}
 
 		mimicTransform = mimicTarget.GetComponent<Transform>();
+		myRigidBody = GetComponent<Rigidbody2D>();
 
 		if (!mimicTransform)
 		{
@@ -78,7 +80,7 @@ public class Mimic : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
 		if (!mimicTransform)
 			return;
@@ -97,6 +99,7 @@ public class Mimic : MonoBehaviour
 			ComputeMimicValue(deltaPosition.y > 0 ? upMimicDirection : downMimicDirection, Mathf.Abs(deltaPosition.y), ref targetDeltaPosition);
 		}
 
-		myTransform.position += targetDeltaPosition * speedModifier;
+		
+		myRigidBody.MovePosition(transform.position + targetDeltaPosition * speedModifier);
 	}
 }

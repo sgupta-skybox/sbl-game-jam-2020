@@ -36,11 +36,11 @@ public class ColoredNPC : MonoBehaviour
 
 		if ( collision.gameObject.tag == "Player")
 		{
-			Destroy(collision.gameObject.GetComponent<PhysicsMovement>());
-			collision.gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
+			Destroy(collision.gameObject.GetComponent<Controller>());
+			collision.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.grey;
 			if( gameObject.tag == "Assasin")
 			{
-				gameObject.AddComponent<PhysicsMovement>();
+				gameObject.AddComponent<Controller>();
 				Destroy(gameObject.GetComponent<Mimic>());
 			}
 			else
