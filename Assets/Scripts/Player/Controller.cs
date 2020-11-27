@@ -177,6 +177,7 @@ public class Controller : MonoBehaviour
             diedText.enabled = true;
         }
         Speed = 0;
+        GetComponentInChildren<SpriteRenderer>().color = Color.grey;
         StartCoroutine(WaitAndRestart());
     }
 }

@@ -27,7 +27,6 @@ public class NPCTriggerManager : MonoBehaviour
 		{
             foreach( var npcTrigger in triggers)
 			{
-                Destroy(npcTrigger.gameObject.GetComponent<Light>());
                 Destroy(npcTrigger.gameObject.GetComponent<Collider2D>());
             }
             centerTrigger.Activate();
