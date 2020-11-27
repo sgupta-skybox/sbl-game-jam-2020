@@ -565,6 +565,14 @@ PrefabInstance:
       propertyPath: objectToTrigger
       value: 
       objectReference: {fileID: 1204993422}
+    - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: objectsToTrigger.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: objectsToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 1204993422}
     - target: {fileID: 8208000988055108039, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
       propertyPath: m_Name
       value: Left Door Button - bottom
@@ -632,6 +640,14 @@ PrefabInstance:
       propertyPath: numBoxesToTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2657142556250150635, guid: f5b92055ca10cfd4a90afe3d3ccbec56, type: 3}
+      propertyPath: objectsToTrigger.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2657142556250150635, guid: f5b92055ca10cfd4a90afe3d3ccbec56, type: 3}
+      propertyPath: objectsToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 1204993422}
     - target: {fileID: 2657142556250150636, guid: f5b92055ca10cfd4a90afe3d3ccbec56, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -741,6 +757,14 @@ PrefabInstance:
       propertyPath: numBoxesToTrigger
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2657142556250150635, guid: f5b92055ca10cfd4a90afe3d3ccbec56, type: 3}
+      propertyPath: objectsToTrigger.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2657142556250150635, guid: f5b92055ca10cfd4a90afe3d3ccbec56, type: 3}
+      propertyPath: objectsToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 24718267}
     - target: {fileID: 2657142556250150636, guid: f5b92055ca10cfd4a90afe3d3ccbec56, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1112,6 +1136,14 @@ PrefabInstance:
       propertyPath: numBoxesToTrigger
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2657142556250150635, guid: f5b92055ca10cfd4a90afe3d3ccbec56, type: 3}
+      propertyPath: objectsToTrigger.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2657142556250150635, guid: f5b92055ca10cfd4a90afe3d3ccbec56, type: 3}
+      propertyPath: objectsToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 969675256}
     - target: {fileID: 2657142556250150636, guid: f5b92055ca10cfd4a90afe3d3ccbec56, type: 3}
       propertyPath: m_RootOrder
       value: 5
