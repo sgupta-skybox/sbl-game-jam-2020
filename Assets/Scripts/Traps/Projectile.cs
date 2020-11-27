@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public Vector2 DirProjectile = Vector2.up;
     [SerializeField]
-    float Speed = 20.0f;
+    protected float Speed = 20.0f;
 
-    int playerLayerMask = 0;
+    protected int playerLayerMask = 0;
 
     void Start()
     {
         playerLayerMask = LayerMask.NameToLayer("Player");
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-        transform.Translate(Vector2.up * Speed * Time.fixedDeltaTime);
+        transform.Translate(DirProjectile * Speed * Time.fixedDeltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)
