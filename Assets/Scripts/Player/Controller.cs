@@ -42,15 +42,13 @@ public class Controller : MonoBehaviour
             movementVelocity.x = horizontal * Speed;
             movementVelocity.y = vertical * Speed;
 
-            HandleGrab(Input.GetKey(KeyCode.Space));
-
-
             float dot = Vector2.Dot(movementVelocity, Vector2.up);
             float determinant = (Vector2.up.x * movementVelocity.y) - (Vector2.up.y * movementVelocity.x);
             float desiredSpriteAngle = Mathf.Atan2(determinant, dot) * Mathf.Rad2Deg;
             spriteAngle = Mathf.LerpAngle(spriteAngle, desiredSpriteAngle, Time.deltaTime * SpriteTurnSpeed);
             spriteChild.rotation = Quaternion.AngleAxis(spriteAngle, Vector3.forward);
         }
+        HandleGrab(Input.GetKey(KeyCode.Space));
     }
 
     void FixedUpdate()
