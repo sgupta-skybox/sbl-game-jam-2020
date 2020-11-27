@@ -6,13 +6,15 @@ public class NPCTrigger : MonoBehaviour
 {
 	public GameObject triggerTarget;
 	NPCTriggerManager triggerManager;
+	public GameObject centerTrigger;
 
-	public GameObject diedText;
+	Color defaultColor;
 	// Start is called before the first frame update
 	void Start()
 	{
 		triggerManager = GetComponentInParent<NPCTriggerManager>();
 		triggerManager.RegisterTrigger(this);
+		defaultColor = GetComponent<SpriteRenderer>().color;
 	}
 
 	// Update is called once per frame
@@ -26,7 +28,8 @@ public class NPCTrigger : MonoBehaviour
 		if( collision.gameObject == triggerTarget)
 		{
 			triggerManager.Triggered();
-			GetComponent<Light>().enabled = true;
+			GetComponent<SpriteRenderer>().color = Color.white;
+			centerTrigger.gameObject.SetActive( false );
 		}
 	}
 
@@ -34,7 +37,8 @@ public class NPCTrigger : MonoBehaviour
 	{
 		if (collision.gameObject == triggerTarget)
 		{
-			GetComponent<Light>().enabled = false;
+			GetComponent<SpriteRenderer>().color = defaultColor;
+			centerTrigger.gameObject.SetActive(true);
 			triggerManager.Untriggered();
 		}
 	}

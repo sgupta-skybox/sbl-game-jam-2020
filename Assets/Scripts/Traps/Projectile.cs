@@ -9,10 +9,12 @@ public class Projectile : MonoBehaviour
     protected float Speed = 20.0f;
 
     protected int playerLayerMask = 0;
+    protected int buttonMask;
 
     protected virtual void Start()
     {
         playerLayerMask = LayerMask.NameToLayer("Player");
+        buttonMask = LayerMask.NameToLayer("Button");
     }
 
     protected virtual void FixedUpdate()
@@ -26,6 +28,10 @@ public class Projectile : MonoBehaviour
         {
             Controller playerController = other.gameObject.GetComponent<Controller>();
             playerController.Die();
+        }
+        if (Speed > 0 && other.gameObject.layer != buttonMask)
+        {
+            Destroy(gameObject);
         }
     }
 }
