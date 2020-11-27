@@ -98,7 +98,6 @@ public class Mimic : MonoBehaviour
 		{
 			ComputeMimicValue(deltaPosition.y > 0 ? upMimicDirection : downMimicDirection, Mathf.Abs(deltaPosition.y), ref targetDeltaPosition);
 		}
-
 		
 		myRigidBody.MovePosition(transform.position + targetDeltaPosition * speedModifier);
 	}
