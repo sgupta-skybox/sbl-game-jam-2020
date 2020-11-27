@@ -187,10 +187,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6444848098926181486, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444848098926181486, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444848098926181486, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.4
+      objectReference: {fileID: 0}
     - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
       propertyPath: objectToTrigger
       value: 
       objectReference: {fileID: 1141661628}
+    - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: numBoxesToTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8208000988055108036, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -706,7 +722,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1663025131
 PrefabInstance:
@@ -780,10 +796,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6444848098926181486, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -19.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444848098926181486, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.4
+      objectReference: {fileID: 0}
     - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
       propertyPath: objectToTrigger
       value: 
       objectReference: {fileID: 1019533839}
+    - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: numBoxesToTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8208000988055108036, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
       propertyPath: m_RootOrder
       value: 1
