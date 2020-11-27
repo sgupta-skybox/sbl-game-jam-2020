@@ -294,6 +294,10 @@ PrefabInstance:
       propertyPath: objectToTrigger
       value: 
       objectReference: {fileID: 1691962244}
+    - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: numBoxesToTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8208000988055108036, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -883,6 +887,10 @@ PrefabInstance:
       propertyPath: objectToTrigger
       value: 
       objectReference: {fileID: 1412139472}
+    - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: numBoxesToTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8208000988055108036, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
       propertyPath: m_RootOrder
       value: 3
