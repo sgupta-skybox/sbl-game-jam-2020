@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class NPCTriggerManager : MonoBehaviour
 {
-    List<NPCTrigger> triggers = new List<NPCTrigger>();
+    List<NPCTrigger> childTriggers = new List<NPCTrigger>();
     int numTriggered = 0;
 
-    public CenterTrigger centerTrigger;
+    public List<TriggerableBase> triggerables;
 
     // Start is called before the first frame update
     void Start()
@@ -17,19 +17,20 @@ public class NPCTriggerManager : MonoBehaviour
 
     public void RegisterTrigger(NPCTrigger trigger)
 	{
-        triggers.Add(trigger);
+        childTriggers.Add(trigger);
 	}
 
     public void Triggered()
 	{
         ++numTriggered;
-        if( triggers.Count == numTriggered)
+        if(childTriggers.Count == numTriggered)
 		{
-            foreach( var npcTrigger in triggers)
+            foreach( var trigger in childTriggers)
 			{
-                Destroy(npcTrigger.gameObject.GetComponent<Collider2D>());
+                trigger.IsTriggered = false;
             }
-            centerTrigger.Activate();
+
+            triggerables.ForEach(trigger => trigger.IsTriggered = true);
         }
 	}
 

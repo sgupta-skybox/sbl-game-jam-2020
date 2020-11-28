@@ -4,85 +4,12 @@ using UnityEngine;
 
 public class CenterTrigger : MonoBehaviour
 {
-
-	enum CenterState
-	{
-		UnTriggered,
-		Triggered,
-		Activated,
-		Completed
-	}
-
-	CenterState state;
-
-	public SpriteRenderer untrigerred;
-	public GameObject triggered;
-	public SpriteRenderer activated;
-
-	public List<Mimic> mimics;
-
-	public GameObject Exit1;
-	public GameObject Exit2;
-	public GameObject NPCTriggers;
-
-	// Start is called before the first frame update
-	void Start()
-	{
-	}
-
-	public void Activate()
-	{
-		Debug.Assert(state == CenterState.Triggered);
-		state = CenterState.Activated;
-		triggered.SetActive(false);
-		GetComponent<BoxCollider2D>().enabled = true;
-	}
+	public List<TriggerableBase> triggerables;
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (state == CenterState.UnTriggered )
-		{
-			foreach (var mimic in mimics)
-			{
-				mimic.enabled = true;
-			}
-
-			var renderers = NPCTriggers.GetComponentsInChildren<SpriteRenderer>();
-			foreach(var renderer in renderers)
-			{
-				renderer.enabled = true;
-			}
-
-			untrigerred.enabled = false;
-			state = CenterState.Triggered;
-		}
-
-		if( state == CenterState.Activated)
-		{
-			if( collision.gameObject.tag == "Player")
-			{
-				GetComponent<Light>().enabled = true;
-				Exit1.SetActive(false);
-				Exit2.SetActive(false);
-			}
-		}
-	}
-
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-		if (state == CenterState.Triggered)
-		{
-			triggered.SetActive( true );
-			activated.enabled = true;
-			GetComponent<BoxCollider2D>().enabled = false;
-		}
-
-		if (state == CenterState.Activated)
-		{
-			GetComponent<Light>().enabled = false;
-			Exit1.SetActive(true);
-			Exit2.SetActive(true);
-		}
+		triggerables.ForEach(trigger => trigger.IsTriggered = true);
+		Destroy(gameObject);
 	}
 
 }

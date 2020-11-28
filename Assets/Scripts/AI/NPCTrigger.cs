@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCTrigger : MonoBehaviour
+public class NPCTrigger : TriggerableBase
 {
 	public GameObject triggerTarget;
 	NPCTriggerManager triggerManager;
-	public GameObject centerTrigger;
-
+	public SpriteRenderer spriteRenderer;
+	public List<TriggerableBase> triggerables;
 	Color defaultColor;
 	// Start is called before the first frame update
 	void Start()
 	{
 		triggerManager = GetComponentInParent<NPCTriggerManager>();
-		triggerManager.RegisterTrigger(this);
-		defaultColor = GetComponent<SpriteRenderer>().color;
+		if( triggerManager)
+		{
+			triggerManager.RegisterTrigger(this);
+		}
+		defaultColor = spriteRenderer.color;
 	}
 
 	// Update is called once per frame
@@ -27,9 +30,11 @@ public class NPCTrigger : MonoBehaviour
 	{
 		if( collision.gameObject == triggerTarget)
 		{
-			triggerManager.Triggered();
-			GetComponent<SpriteRenderer>().color = Color.white;
-			centerTrigger.gameObject.SetActive( false );
+			if( triggerManager)
+				triggerManager.Triggered();
+			if( spriteRenderer )
+				spriteRenderer.color = Color.white;
+			triggerables.ForEach(trigger => trigger.IsTriggered = false);
 		}
 	}
 
@@ -37,9 +42,22 @@ public class NPCTrigger : MonoBehaviour
 	{
 		if (collision.gameObject == triggerTarget)
 		{
-			GetComponent<SpriteRenderer>().color = defaultColor;
-			centerTrigger.gameObject.SetActive(true);
-			triggerManager.Untriggered();
+			if (spriteRenderer)
+				spriteRenderer.color = defaultColor;
+			triggerables.ForEach(trigger => trigger.IsTriggered = true);
+			if (triggerManager)
+				triggerManager.Untriggered();
 		}
+	}
+	protected override void OnTriggered()
+	{
+		spriteRenderer.enabled = true;
+		GetComponent<BoxCollider2D>().enabled = true;
+	}
+
+	protected override void OnUntriggered()
+	{
+		spriteRenderer.enabled = false;
+		GetComponent<BoxCollider2D>().enabled = false;
 	}
 }

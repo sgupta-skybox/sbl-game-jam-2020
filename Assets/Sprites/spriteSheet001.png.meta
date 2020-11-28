@@ -1,0 +1,982 @@
+fileFormatVersion: 2
+guid: fcbdfc1c42bbb9f4ea83e25f53c02ae7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2904072751386508472
+    second: Box_Metal01
+  - first:
+      213: -5812934717105109877
+    second: Box_Metal02
+  - first:
+      213: 1048089979795417723
+    second: Box_Stone01
+  - first:
+      213: -2708344266432614520
+    second: Box_Wood01
+  - first:
+      213: -6334378357908104783
+    second: Box_Wood02
+  - first:
+      213: 862688510535074941
+    second: Enemy_FacingAway01
+  - first:
+      213: -4089085205284778634
+    second: Enemy_FacingLeft01
+  - first:
+      213: 7707157745332500473
+    second: Enemy_FacingRight01
+  - first:
+      213: -8631133304676062599
+    second: Enemy_FacingTowards01
+  - first:
+      213: -6529210362307706442
+    second: Enemy_WalkFacingLeft01
+  - first:
+      213: -7995511047895243810
+    second: Enemy_WalkFacingLeft02
+  - first:
+      213: 6295430052939032930
+    second: Enemy_WalkFacingRight01
+  - first:
+      213: -9053678909618226269
+    second: Enemy_WalkFacingRight02
+  - first:
+      213: -6833001588381628170
+    second: Player_Death01
+  - first:
+      213: 739807334302745437
+    second: Player_Death02
+  - first:
+      213: 2590252239519900305
+    second: Player_Death03
+  - first:
+      213: -2537853068467389666
+    second: Player_Death04
+  - first:
+      213: 5399162868074540461
+    second: Player_Death05
+  - first:
+      213: 5169599820324982699
+    second: Player_Death06
+  - first:
+      213: -2353212549251798250
+    second: Player_Death07
+  - first:
+      213: 1664924500692690233
+    second: Player_Death08
+  - first:
+      213: 6687977786012576141
+    second: Player_Death09
+  - first:
+      213: 6923434093335948961
+    second: Player_Death10
+  - first:
+      213: 1565103761769332885
+    second: Player_Death11
+  - first:
+      213: -7069472819522897425
+    second: Player_Death12
+  - first:
+      213: 770598167040292436
+    second: Player_FacingAway01
+  - first:
+      213: -1325126903956169088
+    second: Player_FacingLeft01
+  - first:
+      213: 6059224176564203459
+    second: Player_FacingRight01
+  - first:
+      213: 5020182772009004012
+    second: Player_FacingTowards01
+  - first:
+      213: 9223219241725737016
+    second: Player_WalkFacingAway01
+  - first:
+      213: 5696226228924183231
+    second: Player_WalkFacingAway02
+  - first:
+      213: -6891522015115708351
+    second: Player_WalkFacingLeft01
+  - first:
+      213: 8587857811223718115
+    second: Player_WalkFacingLeft02
+  - first:
+      213: -5500621182768327614
+    second: Player_WalkFacingRight01
+  - first:
+      213: -6679261928970084825
+    second: Player_WalkFacingRight02
+  - first:
+      213: 8346964234749860573
+    second: Player_WalkFacingTowards01
+  - first:
+      213: 3968655260636302220
+    second: Player_WalkFacingTowards02
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Box_Metal01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 207
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84347b31839a2b7d0800000000000000
+      internalID: -2904072751386508472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Box_Metal02
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 157
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b840a6c4cae445fa0800000000000000
+      internalID: -5812934717105109877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Box_Stone01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 107
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7a2a5a98409b8e00800000000000000
+      internalID: 1048089979795417723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Box_Wood01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 57
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88f61d53d370a6ad0800000000000000
+      internalID: -2708344266432614520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Box_Wood02
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 7
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b917f7c174c718a0800000000000000
+      internalID: -6334378357908104783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_FacingAway01
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 215
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d74014e21a2e8fb00800000000000000
+      internalID: 862688510535074941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_FacingLeft01
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 67
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67d02b2bba6a047c0800000000000000
+      internalID: -4089085205284778634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_FacingRight01
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 25
+        width: 20
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7b176922355fa60800000000000000
+      internalID: 7707157745332500473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_FacingTowards01
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 215
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a6db53dfd083880800000000000000
+      internalID: -8631133304676062599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_WalkFacingLeft01
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 91
+        width: 20
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b189dac4c59365a0800000000000000
+      internalID: -6529210362307706442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_WalkFacingLeft02
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 25
+        width: 20
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed32e70601d3a0190800000000000000
+      internalID: -7995511047895243810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_WalkFacingRight01
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 25
+        width: 22
+        height: 40
+      alignment: 9
+      pivot: {x: 0.54545456, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 269efbd474cdd5750800000000000000
+      internalID: 6295430052939032930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_WalkFacingRight02
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 91
+        width: 22
+        height: 40
+      alignment: 9
+      pivot: {x: 0.54545456, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab72c9000fda5280800000000000000
+      internalID: -9053678909618226269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death01
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 216
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f845d6124d4c21a0800000000000000
+      internalID: -6833001588381628170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death02
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 175
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d530853d9d2544a00800000000000000
+      internalID: 739807334302745437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death03
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 174
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1926e3720bc62f320800000000000000
+      internalID: 2590252239519900305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death04
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 174
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1bbdd1941cb7ccd0800000000000000
+      internalID: -2537853068467389666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death05
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 174
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dadef04c50eadea40800000000000000
+      internalID: 5399162868074540461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death06
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 215
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bafc46995ab1eb740800000000000000
+      internalID: 5169599820324982699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death07
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 134
+        width: 32
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61bead087a5b75fd0800000000000000
+      internalID: -2353212549251798250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death08
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 202
+        width: 34
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5294118, y: 0.7407407}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 935e1a123000b1710800000000000000
+      internalID: 1664924500692690233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death09
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 109
+        width: 32
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8695652}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d89abf8ac5870dc50800000000000000
+      internalID: 6687977786012576141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death10
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 179
+        width: 34
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.95238096}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ae2e1f30aaf41060800000000000000
+      internalID: 6923434093335948961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death11
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 231
+        width: 36
+        height: 24
+      alignment: 9
+      pivot: {x: 0.4722222, y: 0.8333333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59083ec349d58b510800000000000000
+      internalID: 1565103761769332885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Death12
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 170
+        width: 34
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5294118, y: 2.857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe9fe032def24ed90800000000000000
+      internalID: -7069472819522897425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_FacingAway01
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 134
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 456f00b33f6b1ba00800000000000000
+      internalID: 770598167040292436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_FacingLeft01
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 26
+        width: 18
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08e11670a143c9de0800000000000000
+      internalID: -1325126903956169088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_FacingRight01
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 26
+        width: 18
+        height: 39
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cf61921940b61450800000000000000
+      internalID: 6059224176564203459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_FacingTowards01
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 133
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cebe12112a54ba540800000000000000
+      internalID: 5020182772009004012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_WalkFacingAway01
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 133
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8383c9c98057fff70800000000000000
+      internalID: 9223219241725737016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_WalkFacingAway02
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 133
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb2f947439f0d0f40800000000000000
+      internalID: 5696226228924183231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_WalkFacingLeft01
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 92
+        width: 19
+        height: 39
+      alignment: 9
+      pivot: {x: 0.57894737, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1487e377d356c50a0800000000000000
+      internalID: -6891522015115708351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_WalkFacingLeft02
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 26
+        width: 19
+        height: 39
+      alignment: 9
+      pivot: {x: 0.57894737, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e8ad8bcd233e2770800000000000000
+      internalID: 8587857811223718115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_WalkFacingRight01
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 52
+        width: 18
+        height: 39
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 244da158d2ed9a3b0800000000000000
+      internalID: -5500621182768327614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_WalkFacingRight02
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 11
+        width: 18
+        height: 39
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e92f1f9ae7e43a0800000000000000
+      internalID: -6679261928970084825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_WalkFacingTowards01
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 93
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddad7255fbf56d370800000000000000
+      internalID: 8346964234749860573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_WalkFacingTowards02
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 92
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51282054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b4636ceee731730800000000000000
+      internalID: 3968655260636302220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -34,11 +34,6 @@ public class ColoredNPC : MonoBehaviour
 			Die();
 		}
 
-		else if (collision.gameObject.GetComponent<Mimic>() && gameObject.tag != "Assasin")
-		{
-			Die();
-		}
-
 		else if ( collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<Controller>())
 		{
 			if( gameObject.tag == "Assasin")
@@ -47,10 +42,6 @@ public class ColoredNPC : MonoBehaviour
 				Destroy(collision.gameObject.GetComponent<Controller>());
 				collision.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.grey;
 				Destroy(gameObject.GetComponent<Mimic>());
-			}
-			else
-			{
-				collision.gameObject.GetComponent<Controller>().Die();
 			}
 		}
 	}

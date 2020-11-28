@@ -8,7 +8,7 @@ public enum Direction
 	Right
 }
 
-public class Mimic : MonoBehaviour
+public class Mimic : TriggerableBase
 {
 	public Direction upMimicDirection = Direction.Up;
 	public Direction downMimicDirection = Direction.Down;
@@ -100,5 +100,10 @@ public class Mimic : MonoBehaviour
 		}
 		
 		myRigidBody.MovePosition(transform.position + targetDeltaPosition * speedModifier);
+	}
+
+	protected override void OnTriggered()
+	{
+		enabled = true;
 	}
 }
