@@ -45,7 +45,7 @@ public class Button : TriggerableBase
         currentTimer = timer;
         foreach (GameObject objectToTrigger in objectsToTrigger)
         {
-            objectToTrigger.SetActive(false);
+            objectToTrigger.SetActive(!objectToTrigger.activeSelf);
         }
     }
 
@@ -53,7 +53,7 @@ public class Button : TriggerableBase
     {
         foreach (GameObject objectToTrigger in objectsToTrigger)
         {
-            objectToTrigger.SetActive(true);
+            objectToTrigger.SetActive(!objectToTrigger.activeSelf);
         }
     }
 
