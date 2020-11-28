@@ -19,7 +19,7 @@ public class ProjectileSpawner : MonoBehaviour
     {
         while( true )
         {
-            Instantiate(ProjectilePrefab, transform.position, transform.rotation);
+            Instantiate(ProjectilePrefab, transform.position + (transform.right * 3), transform.rotation);
             yield return new WaitForSeconds(SpawnCooldown * 1.0f);
         }
     }

@@ -33,8 +33,13 @@ public class Projectile : MonoBehaviour
             Controller playerController = other.gameObject.GetComponent<Controller>();
             playerController.Die();
         }
-        if (Speed > 0 && other.gameObject.layer != buttonMask)
+        else if (other.gameObject.layer == playerLayerMask)
         {
+            print("hit spawner!!");
+        }
+        else if (Speed > 0 && other.gameObject.layer != buttonMask)
+        {
+            print(other.gameObject.name);
             Destroy(gameObject);
         }
     }
