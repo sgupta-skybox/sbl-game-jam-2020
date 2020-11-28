@@ -108,6 +108,11 @@ public class Controller : MonoBehaviour
                 if (grabComponent)
                 {
                     grabComponent.gameObject.transform.SetParent(transform);
+                    ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
+                    if (throwComponent)
+                    {
+                        throwComponent.OnGrabbed();
+                    }
                     return;
                 }
             }
@@ -117,6 +122,12 @@ public class Controller : MonoBehaviour
             if (grabComponent)
             {
                 grabComponent.gameObject.transform.SetParent(null);
+                ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
+                if (throwComponent)
+                {
+                    Vector2 throwDirection = (throwComponent.transform.position - transform.position).normalized;
+                    throwComponent.Throw(throwDirection);
+                }
                 grabComponent = null;
             }
         }
