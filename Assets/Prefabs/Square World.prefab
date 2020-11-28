@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9019090484121934691}
   - component: {fileID: 9019090484121934692}
   m_Layer: 0
-  m_Name: World 1
+  m_Name: Square World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,11 +94,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0.1
   m_Points:
-  - {x: 40, y: 20}
-  - {x: -40, y: 20}
-  - {x: -40, y: -20}
-  - {x: 40, y: -20}
-  - {x: 40, y: 20}
+  - {x: 35.55556, y: 20}
+  - {x: -35.55556, y: 20}
+  - {x: -35.55556, y: -20}
+  - {x: 35.55556, y: -20}
+  - {x: 35.55556, y: 20}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
