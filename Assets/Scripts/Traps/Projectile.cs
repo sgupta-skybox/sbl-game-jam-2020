@@ -11,15 +11,19 @@ public class Projectile : MonoBehaviour
     protected int playerLayerMask = 0;
     protected int buttonMask;
 
+    protected Rigidbody2D rigidBody;
+
     protected virtual void Start()
     {
+        rigidBody = GetComponent<Rigidbody2D>();
         playerLayerMask = LayerMask.NameToLayer("Player");
         buttonMask = LayerMask.NameToLayer("Button");
+        DirProjectile = transform.rotation * Vector3.right;
     }
 
     protected virtual void FixedUpdate()
     {
-        transform.Translate(DirProjectile * Speed * Time.fixedDeltaTime);
+        rigidBody.MovePosition(rigidBody.position + DirProjectile * Speed * Time.fixedDeltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)
