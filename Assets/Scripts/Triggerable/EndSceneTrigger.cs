@@ -24,7 +24,10 @@ public class EndSceneTrigger : TriggerableBase
 
     protected override void OnTriggered()
     {
-        SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
+        if (nextScene.Length > 0)
+        {
+            SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
