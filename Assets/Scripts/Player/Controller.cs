@@ -7,16 +7,16 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     [SerializeField]
-    float Speed = 10.0f;
+    protected float Speed = 10.0f;
     public float deathTimer;
 
     [SerializeField]
     [Range(1.0f, 2.0f)]
     float GrabRadiusMultiplier = 1.2f;
 
-    Vector2 movementVelocity;
+    protected Vector2 movementVelocity;
 
-    GrabComponent grabComponent;
+    protected GrabComponent grabComponent;
     CircleCollider2D controllerCollider;
     Rigidbody2D controllerBody;
 
@@ -27,8 +27,10 @@ public class Controller : MonoBehaviour
 
     [SerializeField]
     float SpriteTurnSpeed = 5.0f;
+
+    protected bool isPlayable = true;
  
-    void Start()
+    protected virtual void Start()
     {
         movementVelocity = Vector2.zero;
         controllerCollider = GetComponent<CircleCollider2D>();
@@ -47,26 +49,32 @@ public class Controller : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        if (Mathf.Abs(horizontal) > 0.0f || Mathf.Abs(vertical) > 0.0f)
+        if (isPlayable)
         {
-            movementVelocity.x = horizontal * Speed;
-            movementVelocity.y = vertical * Speed;
+            if (Mathf.Abs(horizontal) > 0.0f || Mathf.Abs(vertical) > 0.0f)
+            {
+                movementVelocity.x = horizontal * Speed;
+                movementVelocity.y = vertical * Speed;
+            }
 
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                HandleGrab(grabComponent == null);
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                HandleThrow();
+            }
+        }
+
+        if(movementVelocity != Vector2.zero )
+        {
             float dot = Vector2.Dot(movementVelocity, Vector2.up);
             float determinant = (Vector2.up.x * movementVelocity.y) - (Vector2.up.y * movementVelocity.x);
             float desiredSpriteAngle = Mathf.Atan2(determinant, dot) * Mathf.Rad2Deg;
             spriteAngle = Mathf.LerpAngle(spriteAngle, desiredSpriteAngle, Time.deltaTime * SpriteTurnSpeed);
             spriteChild.rotation = Quaternion.AngleAxis(spriteAngle, Vector3.forward);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            HandleGrab(grabComponent == null);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            HandleThrow();
         }
         CheckGrabComponents();
         DebugDraw();
@@ -103,7 +111,7 @@ public class Controller : MonoBehaviour
 #endif
     }
 
-    void HandleGrab(bool tryGrabbing)
+    protected void HandleGrab(bool tryGrabbing)
     {
         if (tryGrabbing)
         {
@@ -135,7 +143,7 @@ public class Controller : MonoBehaviour
         }
     }
 
-    void HandleThrow()
+    protected void HandleThrow()
     {
         if (grabComponent)
         {
@@ -151,7 +159,7 @@ public class Controller : MonoBehaviour
     }
 
 
-    GrabComponent GetNearestGrabComponents()
+    protected GrabComponent GetNearestGrabComponents()
     {
         if (grabComponent)
             return grabComponent;
