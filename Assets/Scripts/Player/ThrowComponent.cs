@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(RequireComponent))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class ThrowComponent : MonoBehaviour
 {
     [SerializeField]
@@ -10,34 +10,31 @@ public class ThrowComponent : MonoBehaviour
 
     Rigidbody2D ownRigidbody2D;
     Vector2 localOffset;
-    bool isGrabbed = false;
-    bool isThrown = false;
     void Start()
     {
         ownRigidbody2D = GetComponent<Rigidbody2D>();
         ownRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         ownRigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
+        ownRigidbody2D.gravityScale = 0.0f;
+        ownRigidbody2D.drag = 5.0f;
+        ownRigidbody2D.angularDrag = 0.0f;
     }
 
     public void OnGrabbed()
     {
         ownRigidbody2D.velocity = Vector2.zero;
-        isThrown = false;
-        isGrabbed = true;
         ownRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         localOffset = transform.localPosition;
     }
 
     public void Throw(Vector2 throwDirection)
     {
-        isGrabbed = false;
-        isThrown = true;
         ownRigidbody2D.velocity = throwDirection * ThrowSpeed;
     }
 
     void Update()
     {
-        if (isGrabbed)
+        if (transform.parent)
         {
             transform.localPosition = localOffset;
         }
@@ -45,10 +42,9 @@ public class ThrowComponent : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isThrown && ownRigidbody2D.velocity.sqrMagnitude < 1.0f)
+        if (!transform.parent && ownRigidbody2D.velocity.sqrMagnitude < 1.0f)
         {
             ownRigidbody2D.Sleep();
-            isThrown = false;
             ownRigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }

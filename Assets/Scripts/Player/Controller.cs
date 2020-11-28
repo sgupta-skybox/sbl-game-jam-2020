@@ -63,6 +63,11 @@ public class Controller : MonoBehaviour
         {
             HandleGrab(grabComponent == null);
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            HandleThrow();
+        }
         CheckGrabComponents();
         DebugDraw();
     }
@@ -98,9 +103,9 @@ public class Controller : MonoBehaviour
 #endif
     }
 
-    void HandleGrab(bool isGrabbing)
+    void HandleGrab(bool tryGrabbing)
     {
-        if (isGrabbing)
+        if (tryGrabbing)
         {
             if (!grabComponent)
             {
@@ -121,15 +126,27 @@ public class Controller : MonoBehaviour
         {
             if (grabComponent)
             {
+                Vector2 position = grabComponent.gameObject.transform.position;
                 grabComponent.gameObject.transform.SetParent(null);
-                ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
-                if (throwComponent)
-                {
-                    Vector2 throwDirection = (throwComponent.transform.position - transform.position).normalized;
-                    throwComponent.Throw(throwDirection);
-                }
+                grabComponent.transform.position = position;
+                grabComponent.transform.localPosition = position;
                 grabComponent = null;
             }
+        }
+    }
+
+    void HandleThrow()
+    {
+        if (grabComponent)
+        {
+            grabComponent.gameObject.transform.SetParent(null);
+            ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
+            if (throwComponent)
+            {
+                Vector2 throwDirection = (throwComponent.transform.position - transform.position).normalized;
+                throwComponent.Throw(throwDirection);
+            }
+            grabComponent = null;
         }
     }
 
