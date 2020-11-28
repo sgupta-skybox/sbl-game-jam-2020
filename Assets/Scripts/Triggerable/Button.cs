@@ -10,6 +10,7 @@ public class Button : TriggerableBase
     public float timer;
     public bool playerCounts = true;
     public bool boxCounts = true;
+    public bool Toggles = true;
 
     private int playerLayerMask = 0;
     private int movableObjectLayerMask = 0;
@@ -45,7 +46,14 @@ public class Button : TriggerableBase
         currentTimer = timer;
         foreach (GameObject objectToTrigger in objectsToTrigger)
         {
-            objectToTrigger.SetActive(false);
+            if (Toggles)
+            {
+                objectToTrigger.SetActive(!objectToTrigger.activeSelf);
+            }
+            else
+            {
+                objectToTrigger.SetActive(false);
+            }
         }
     }
 
@@ -53,7 +61,14 @@ public class Button : TriggerableBase
     {
         foreach (GameObject objectToTrigger in objectsToTrigger)
         {
-            objectToTrigger.SetActive(true);
+            if (Toggles)
+            {
+                objectToTrigger.SetActive(!objectToTrigger.activeSelf);
+            }
+            else
+            {
+                objectToTrigger.SetActive(true);
+            }
         }
     }
 

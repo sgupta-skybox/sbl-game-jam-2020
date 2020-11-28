@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ColoredMimics
   - Assasin
+  - Throwable
   layers:
   - Default
   - TransparentFX

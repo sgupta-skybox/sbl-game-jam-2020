@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6569323708943851805}
   - component: {fileID: 6569323708943851807}
   - component: {fileID: 7003428173070233933}
+  - component: {fileID: 7026010295079111608}
   m_Layer: 13
   m_Name: ProjectileSpawner
   m_TagString: Untagged
@@ -109,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6569323708943851806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.94, y: -12.96, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 3}
   m_Children:
   - {fileID: 8214119886432143649}
@@ -206,5 +207,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 2097889698422365749, guid: 60483cb12227052449709753ca8d8814, type: 3}
-  ProjectileDirection: {x: 0, y: 0}
   SpawnCooldown: 1
+--- !u!114 &7026010295079111608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6569323708943851806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c54bf8b18d75f4d8369d4045f085e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabColor: {r: 1, g: 0, b: 0, a: 1}
+  HightlightColor: {r: 0, g: 1, b: 0, a: 1}

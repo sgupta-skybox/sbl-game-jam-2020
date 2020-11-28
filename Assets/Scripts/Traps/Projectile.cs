@@ -11,15 +11,19 @@ public class Projectile : MonoBehaviour
     protected int playerLayerMask = 0;
     protected int buttonMask;
 
+    protected Rigidbody2D rigidBody;
+
     protected virtual void Start()
     {
+        rigidBody = GetComponent<Rigidbody2D>();
         playerLayerMask = LayerMask.NameToLayer("Player");
         buttonMask = LayerMask.NameToLayer("Button");
+        DirProjectile = transform.rotation * Vector3.right;
     }
 
     protected virtual void FixedUpdate()
     {
-        transform.Translate(DirProjectile * Speed * Time.fixedDeltaTime);
+        rigidBody.MovePosition(rigidBody.position + DirProjectile * Speed * Time.fixedDeltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -29,8 +33,13 @@ public class Projectile : MonoBehaviour
             Controller playerController = other.gameObject.GetComponent<Controller>();
             playerController.Die();
         }
-        if (Speed > 0 && other.gameObject.layer != buttonMask)
+        else if (other.gameObject.layer == playerLayerMask)
         {
+            print("hit spawner!!");
+        }
+        else if (Speed > 0 && other.gameObject.layer != buttonMask)
+        {
+            print(other.gameObject.name);
             Destroy(gameObject);
         }
     }
