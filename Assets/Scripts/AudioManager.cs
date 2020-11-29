@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     List<AudioClip> clipsPlayedThisFrame;
     void Awake() // needs to happen before OnEnable is called on other scripts
     {
+        DontDestroyOnLoad(gameObject);
         clipsPlayedThisFrame = new List<AudioClip>();
     }
 

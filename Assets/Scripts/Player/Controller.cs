@@ -191,14 +191,14 @@ public class Controller : MonoBehaviour
     {
         if (grabComponent)
         {
-            if (ThrowSound)
-            {
-                audioManager.PlayClip(ThrowSound);
-            }
             grabComponent.gameObject.transform.SetParent(null);
             ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
             if (throwComponent)
             {
+                if (ThrowSound)
+                {
+                    audioManager.PlayClip(ThrowSound);
+                }
                 Vector2 throwDirection = (throwComponent.transform.position - transform.position).normalized;
                 throwComponent.Throw(throwDirection);
                 OnGrabReleased?.Invoke(this);
