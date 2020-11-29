@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 20
-  deathTimer: 0
+  deathTimer: 3
   GrabRadiusMultiplier: 1.2
   movementVelocity: {x: 0, y: 0}
   SpriteTurnSpeed: 5
