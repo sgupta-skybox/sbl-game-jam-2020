@@ -105,9 +105,10 @@ public class Controller : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
+        spriteChild = transform.GetChild(0);
+        Vector3 Scaler = spriteChild.localScale;
         Scaler.x *= -1;
-        transform.localScale = Scaler;
+        spriteChild.localScale = Scaler;
     }
 
     void CheckGrabComponents()
