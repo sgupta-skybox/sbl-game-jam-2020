@@ -35,6 +35,8 @@ public class Controller : MonoBehaviour
 
     public Action<Controller> OnGrabReleased;
 
+    public bool facingRight = true;
+
     public float ColliderRadius
     {
         get { return controllerCollider != null ? controllerCollider.radius * GrabRadiusMultiplier : 0.0f; }
@@ -84,14 +86,6 @@ public class Controller : MonoBehaviour
             }
         }
 
-        if(movementVelocity != Vector2.zero )
-        {
-            float dot = Vector2.Dot(movementVelocity, Vector2.up);
-            float determinant = (Vector2.up.x * movementVelocity.y) - (Vector2.up.y * movementVelocity.x);
-            float desiredSpriteAngle = Mathf.Atan2(determinant, dot) * Mathf.Rad2Deg;
-            spriteAngle = Mathf.LerpAngle(spriteAngle, desiredSpriteAngle, Time.deltaTime * SpriteTurnSpeed);
-            spriteChild.rotation = Quaternion.AngleAxis(spriteAngle, Vector3.forward);
-        }
         CheckGrabComponents();
         DebugDraw();
     }
@@ -100,7 +94,20 @@ public class Controller : MonoBehaviour
     {
         Vector2 desiredPosition = (Vector2)(transform.position) + (movementVelocity * Time.fixedDeltaTime);
         controllerBody.MovePosition(desiredPosition);
+        if( facingRight ^ (movementVelocity.x > 0))
+		{
+            Flip();
+		}
+
         movementVelocity = Vector2.zero;
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
     }
 
     void CheckGrabComponents()
