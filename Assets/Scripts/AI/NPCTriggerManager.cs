@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCTriggerManager : MonoBehaviour
 {
     List<NPCTrigger> childTriggers = new List<NPCTrigger>();
-    int numTriggered = 0;
+
 
     public List<TriggerableBase> triggerables;
 
@@ -22,8 +22,13 @@ public class NPCTriggerManager : MonoBehaviour
 
     public void Triggered()
 	{
-        ++numTriggered;
-        if(childTriggers.Count == numTriggered)
+        bool allTriggered = true;
+        foreach (var trigger in childTriggers)
+        {
+            allTriggered &= trigger.npcBoxTriggered;
+        }
+
+        if(allTriggered)
 		{
             foreach( var trigger in childTriggers)
 			{
@@ -33,11 +38,6 @@ public class NPCTriggerManager : MonoBehaviour
             triggerables.ForEach(trigger => trigger.IsTriggered = true);
         }
 	}
-
-    public void Untriggered()
-    {
-        --numTriggered;
-    }
 
     // Update is called once per frame
     void Update()

@@ -8,6 +8,7 @@ public class NPCTrigger : TriggerableBase
 	NPCTriggerManager triggerManager;
 	public SpriteRenderer spriteRenderer;
 	public List<TriggerableBase> triggerables;
+	public bool npcBoxTriggered = false;
 	Color defaultColor;
 	// Start is called before the first frame update
 	void Start()
@@ -30,6 +31,7 @@ public class NPCTrigger : TriggerableBase
 	{
 		if( collision.gameObject == triggerTarget)
 		{
+			npcBoxTriggered = true;
 			if( triggerManager)
 				triggerManager.Triggered();
 			if( spriteRenderer )
@@ -51,8 +53,7 @@ public class NPCTrigger : TriggerableBase
 			if (spriteRenderer)
 			spriteRenderer.color = defaultColor;
 			triggerables.ForEach(trigger => trigger.IsTriggered = true);
-			if (triggerManager)
-				triggerManager.Untriggered();
+			npcBoxTriggered = false;
 		}
 	}
 	protected override void OnTriggered()
