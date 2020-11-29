@@ -44,30 +44,36 @@ public class Button : TriggerableBase
     protected override void OnTriggered() 
     {
         currentTimer = timer;
-        foreach (GameObject objectToTrigger in objectsToTrigger)
-        {
-            if (Toggles)
-            {
-                objectToTrigger.SetActive(!objectToTrigger.activeSelf);
-            }
-            else
-            {
-                objectToTrigger.SetActive(false);
-            }
-        }
+        TriggerObjects(true);
     }
 
     protected override void OnUntriggered()
     {
+        TriggerObjects(false);
+    }
+
+    void TriggerObjects( bool isTriggered )
+    {
         foreach (GameObject objectToTrigger in objectsToTrigger)
         {
-            if (Toggles)
+            var door = objectToTrigger.GetComponent<Door>();
+            if (door)
             {
-                objectToTrigger.SetActive(!objectToTrigger.activeSelf);
+                if (Toggles)
+                    door.ToggleDoor();
+                else
+                    door.OpenDoor(isTriggered);
             }
             else
             {
-                objectToTrigger.SetActive(true);
+                if (Toggles)
+                {
+                    objectToTrigger.SetActive(!objectToTrigger.activeSelf);
+                }
+                else
+                {
+                    objectToTrigger.SetActive(isTriggered);
+                }
             }
         }
     }
