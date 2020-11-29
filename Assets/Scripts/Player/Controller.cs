@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine.SceneManagement;
@@ -14,7 +15,7 @@ public class Controller : MonoBehaviour
     [Range(1.0f, 2.0f)]
     float GrabRadiusMultiplier = 1.2f;
 
-    protected Vector2 movementVelocity;
+    public Vector2 movementVelocity;
 
     protected GrabComponent grabComponent;
     CircleCollider2D controllerCollider;
@@ -31,7 +32,15 @@ public class Controller : MonoBehaviour
     float SpriteTurnSpeed = 5.0f;
 
     protected bool isPlayable = true;
- 
+
+    public Action<Controller> OnGrabReleased;
+
+    public float ColliderRadius
+    {
+        get { return controllerCollider != null ? controllerCollider.radius * GrabRadiusMultiplier : 0.0f; }
+    }
+
+
     protected virtual void Start()
     {
         movementVelocity = Vector2.zero;
@@ -131,7 +140,7 @@ public class Controller : MonoBehaviour
                     ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
                     if (throwComponent)
                     {
-                        throwComponent.OnGrabbed();
+                        throwComponent.OnGrabbed(this);
                     }
                     return;
                 }
@@ -146,6 +155,7 @@ public class Controller : MonoBehaviour
                 grabComponent.transform.position = position;
                 grabComponent.transform.localPosition = position;
                 grabComponent = null;
+                OnGrabReleased?.Invoke(this);
             }
         }
     }
@@ -160,6 +170,7 @@ public class Controller : MonoBehaviour
             {
                 Vector2 throwDirection = (throwComponent.transform.position - transform.position).normalized;
                 throwComponent.Throw(throwDirection);
+                OnGrabReleased?.Invoke(this);
             }
             grabComponent = null;
         }

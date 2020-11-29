@@ -9,7 +9,6 @@ public class ThrowComponent : MonoBehaviour
     float ThrowSpeed = 10.0f;
 
     Rigidbody2D ownRigidbody2D;
-    Vector2 localOffset;
     void Start()
     {
         ownRigidbody2D = GetComponent<Rigidbody2D>();
@@ -20,31 +19,49 @@ public class ThrowComponent : MonoBehaviour
         ownRigidbody2D.angularDrag = 0.0f;
     }
 
-    public void OnGrabbed()
+    public void OnGrabbed(Controller parent)
     {
         ownRigidbody2D.velocity = Vector2.zero;
         ownRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-        localOffset = transform.localPosition;
+
+        parent.OnGrabReleased += GrabReleased;
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), transform.parent.GetComponent<Collider2D>());
     }
 
     public void Throw(Vector2 throwDirection)
     {
-        ownRigidbody2D.velocity = throwDirection * ThrowSpeed;
+        //ownRigidbody2D.velocity = throwDirection * ThrowSpeed;
+        // rigid body would lose its velocity in some certain cases
+        // AddForce gives its force more reliably.
+        ownRigidbody2D.AddForce(throwDirection * ThrowSpeed * 50);
+    }
+
+    void GrabReleased(Controller parent)
+    {
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), parent.GetComponent<Collider2D>(), false);
+        parent.OnGrabReleased -= GrabReleased;
     }
 
     void Update()
     {
         if (transform.parent)
         {
-            transform.localPosition = localOffset;
+            var controller = transform.parent.GetComponent<Controller>();
+            if (controller)
+            {
+                var dir = controller.movementVelocity.normalized;
+                if (dir != Vector2.zero)
+                {
+                    ownRigidbody2D.MovePosition( transform.parent.position + dir.ToVector3() * controller.ColliderRadius * 2);
+                }
+            }
         }
     }
 
     void FixedUpdate()
     {
-        if (!transform.parent && ownRigidbody2D.velocity.sqrMagnitude < 1.0f)
+        if (!transform.parent && ownRigidbody2D.IsSleeping() )
         {
-            ownRigidbody2D.Sleep();
             ownRigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
