@@ -142,7 +142,7 @@ public class Button : TriggerableBase
             }
             else
             {
-                int idx = numBoxesToTrigger - objectsOnTop.Count + 1;
+                int idx = Mathf.Max(0, numBoxesToTrigger - objectsOnTop.Count) + 1;
                 buttons[i].SetActive(i == idx);
             }
         }
