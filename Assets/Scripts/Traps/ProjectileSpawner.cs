@@ -9,8 +9,9 @@ public class ProjectileSpawner : MonoBehaviour
 
     [SerializeField]
     float SpawnCooldown = 1.0f;
-    void Start()
-    {
+
+    void OnEnable()
+	{
         StartCoroutine(FireProjectile());
     }
 
