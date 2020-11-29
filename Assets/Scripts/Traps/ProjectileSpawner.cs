@@ -10,6 +10,15 @@ public class ProjectileSpawner : MonoBehaviour
     [SerializeField]
     float SpawnCooldown = 1.0f;
 
+    [SerializeField]
+    GameObject baseSprite;
+
+    private void Start()
+    {
+        if (baseSprite)
+            baseSprite.transform.localRotation = Quaternion.Inverse(transform.rotation);
+    }
+
     void OnEnable()
 	{
         StartCoroutine(FireProjectile());
