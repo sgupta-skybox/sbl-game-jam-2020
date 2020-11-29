@@ -10,8 +10,15 @@ public class ProjectileSpawner : MonoBehaviour
     [SerializeField]
     float SpawnCooldown = 1.0f;
 
+    [SerializeField]
+    AudioClip FireSound;
+
+    AudioManager audioManager;
+
     void OnEnable()
 	{
+        audioManager = GameObject.FindGameObjectWithTag(AudioManager.NAME).GetComponent<AudioManager>();
+
         StartCoroutine(FireProjectile());
     }
 
@@ -20,6 +27,10 @@ public class ProjectileSpawner : MonoBehaviour
     {
         while( true )
         {
+            if (FireSound)
+            {
+                audioManager.PlayClip(FireSound);
+            }
             Instantiate(ProjectilePrefab, transform.position + (transform.right * 3), transform.rotation);
             yield return new WaitForSeconds(SpawnCooldown * 1.0f);
         }
