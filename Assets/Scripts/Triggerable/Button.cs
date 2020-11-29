@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Button : TriggerableBase
 {
     [SerializeField]
@@ -19,12 +20,15 @@ public class Button : TriggerableBase
     private bool timerStarted = false;
 
     private List<GameObject> objectsOnTop = new List<GameObject>();
+    [SerializeField]
+    List<GameObject> buttons;
 
     // Start is called before the first frame update
     void Start()
     {
         playerLayerMask = LayerMask.NameToLayer("Player");
         movableObjectLayerMask = LayerMask.NameToLayer("MovableObject");
+        UpdateButtonState();
     }
 
     // Update is called once per frame
@@ -104,6 +108,7 @@ public class Button : TriggerableBase
             IsTriggered = true;
             timerStarted = false;
         }
+        UpdateButtonState();
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -123,6 +128,23 @@ public class Button : TriggerableBase
             {
                 timerStarted = true;
             }
-        }        
+        }
+        UpdateButtonState();
+    }
+
+    void UpdateButtonState()
+    {
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            if (objectsOnTop.Count == 0)
+            {
+                buttons[i].SetActive(i == 0);
+            }
+            else
+            {
+                int idx = numBoxesToTrigger - objectsOnTop.Count + 1;
+                buttons[i].SetActive(i == idx);
+            }
+        }
     }
 }
