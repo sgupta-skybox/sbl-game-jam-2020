@@ -37,6 +37,14 @@ public class Controller : MonoBehaviour
 
     public bool facingRight = true;
 
+    AudioManager audioManager;
+
+    [SerializeField]
+    AudioClip GrabSound;
+
+    [SerializeField]
+    AudioClip ThrowSound;
+
     public float ColliderRadius
     {
         get { return controllerCollider != null ? controllerCollider.radius * GrabRadiusMultiplier : 0.0f; }
@@ -45,6 +53,8 @@ public class Controller : MonoBehaviour
 
     protected virtual void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag(AudioManager.NAME).GetComponent<AudioManager>();
+
         movementVelocity = Vector2.zero;
         controllerCollider = GetComponent<CircleCollider2D>();
         controllerBody = GetComponent<Rigidbody2D>();
@@ -60,6 +70,11 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         // maybe switch to get axis raw?
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -144,6 +159,10 @@ public class Controller : MonoBehaviour
                 grabComponent = GetNearestGrabComponents();
                 if (grabComponent)
                 {
+                    if (GrabSound)
+                    {
+                        audioManager.PlayClip(GrabSound);
+                    }
                     grabComponent.gameObject.transform.SetParent(transform);
                     ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
                     if (throwComponent)
@@ -176,6 +195,10 @@ public class Controller : MonoBehaviour
             ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
             if (throwComponent)
             {
+                if (ThrowSound)
+                {
+                    audioManager.PlayClip(ThrowSound);
+                }
                 Vector2 throwDirection = (throwComponent.transform.position - transform.position).normalized;
                 throwComponent.Throw(throwDirection);
                 OnGrabReleased?.Invoke(this);
@@ -240,6 +263,7 @@ public class Controller : MonoBehaviour
             diedText.enabled = true;
         }
         Speed = 0;
+        animator.SetTrigger("Death");
         GetComponentInChildren<SpriteRenderer>().color = Color.grey;
         StartCoroutine(WaitAndRestart());
     }

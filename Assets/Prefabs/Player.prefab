@@ -84,11 +84,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 20
-  deathTimer: 0
+  deathTimer: 3
   GrabRadiusMultiplier: 1.2
   movementVelocity: {x: 0, y: 0}
   SpriteTurnSpeed: 5
   facingRight: 1
+  GrabSound: {fileID: 8300000, guid: 822047c3c90ef7242b1955f22c195956, type: 3}
+  ThrowSound: {fileID: 8300000, guid: 50e69317c5af777488e40b80858c1ca2, type: 3}
 --- !u!1 &7159855417326659777
 GameObject:
   m_ObjectHideFlags: 0

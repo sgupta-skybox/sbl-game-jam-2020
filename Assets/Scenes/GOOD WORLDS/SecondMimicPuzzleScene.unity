@@ -475,7 +475,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1490,6 +1490,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Win
       objectReference: {fileID: 0}
+    - target: {fileID: 1063966266695530333, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
+      propertyPath: nextScene
+      value: End Scene
+      objectReference: {fileID: 0}
     - target: {fileID: 1063966266695530335, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1968,7 +1972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251272752000261602, guid: 6c87d693187ba6149916d3d7062f20db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8251272752000261602, guid: 6c87d693187ba6149916d3d7062f20db, type: 3}
       propertyPath: m_LocalRotation.w

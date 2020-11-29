@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/GOOD WORLDS/Welcome Scene.unity
+    guid: 2683eb1512239734ebc15877e7a5c64f
+  - enabled: 1
     path: Assets/Scenes/GOOD WORLDS/Advanced Box Pushing.unity
     guid: 67f2b8d023dc6bb4b916653a0e1cc57f
   - enabled: 1
@@ -35,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GOOD WORLDS/Bouncy Projectiles.unity
     guid: a65930b4ae889ce41903c0f431364489
+  - enabled: 1
+    path: Assets/Scenes/GOOD WORLDS/End Scene.unity
+    guid: 041d0df76649a344d963a7ff72a16260
   m_configObjects: {}
