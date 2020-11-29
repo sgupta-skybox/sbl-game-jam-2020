@@ -25,6 +25,8 @@ public class Controller : MonoBehaviour
 
     MeshRenderer diedText;
 
+    Animator animator;
+
     [SerializeField]
     float SpriteTurnSpeed = 5.0f;
 
@@ -41,6 +43,8 @@ public class Controller : MonoBehaviour
         {
             diedText = gameOver.GetComponent<MeshRenderer>();
         }
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -48,6 +52,9 @@ public class Controller : MonoBehaviour
         // maybe switch to get axis raw?
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
+        animator.SetFloat("HorizontalSpeed", Mathf.Abs(horizontal));
+        animator.SetFloat("VerticalSpeed", Mathf.Abs(vertical));
 
         if (isPlayable)
         {
