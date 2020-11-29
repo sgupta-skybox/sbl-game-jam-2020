@@ -19,15 +19,27 @@ public class ThrowComponent : MonoBehaviour
         ownRigidbody2D.angularDrag = 0.0f;
     }
 
-    public void OnGrabbed()
+    public void OnGrabbed(Controller parent)
     {
         ownRigidbody2D.velocity = Vector2.zero;
         ownRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        parent.OnGrabReleased += GrabReleased;
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), transform.parent.GetComponent<Collider2D>());
     }
 
     public void Throw(Vector2 throwDirection)
     {
-        ownRigidbody2D.velocity = throwDirection * ThrowSpeed;
+        //ownRigidbody2D.velocity = throwDirection * ThrowSpeed;
+        // rigid body would lose its velocity in some certain cases
+        // AddForce gives its force more reliably.
+        ownRigidbody2D.AddForce(throwDirection * ThrowSpeed * 50);
+    }
+
+    void GrabReleased(Controller parent)
+    {
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), parent.GetComponent<Collider2D>(), false);
+        parent.OnGrabReleased -= GrabReleased;
     }
 
     void Update()
@@ -40,7 +52,7 @@ public class ThrowComponent : MonoBehaviour
                 var dir = controller.movementVelocity.normalized;
                 if (dir != Vector2.zero)
                 {
-                    this.transform.position = transform.parent.position + dir.ToVector3() * controller.ColliderRadius * 2;
+                    ownRigidbody2D.MovePosition( transform.parent.position + dir.ToVector3() * controller.ColliderRadius * 2);
                 }
             }
         }
@@ -48,9 +60,8 @@ public class ThrowComponent : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!transform.parent && ownRigidbody2D.velocity.sqrMagnitude < 1.0f)
+        if (!transform.parent && ownRigidbody2D.IsSleeping() )
         {
-            ownRigidbody2D.Sleep();
             ownRigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }

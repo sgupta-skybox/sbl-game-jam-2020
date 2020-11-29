@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine.SceneManagement;
@@ -29,6 +30,8 @@ public class Controller : MonoBehaviour
     float SpriteTurnSpeed = 5.0f;
 
     protected bool isPlayable = true;
+
+    public Action<Controller> OnGrabReleased;
 
     public float ColliderRadius
     {
@@ -130,7 +133,7 @@ public class Controller : MonoBehaviour
                     ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
                     if (throwComponent)
                     {
-                        throwComponent.OnGrabbed();
+                        throwComponent.OnGrabbed(this);
                     }
                     return;
                 }
@@ -145,6 +148,7 @@ public class Controller : MonoBehaviour
                 grabComponent.transform.position = position;
                 grabComponent.transform.localPosition = position;
                 grabComponent = null;
+                OnGrabReleased?.Invoke(this);
             }
         }
     }
@@ -159,6 +163,7 @@ public class Controller : MonoBehaviour
             {
                 Vector2 throwDirection = (throwComponent.transform.position - transform.position).normalized;
                 throwComponent.Throw(throwDirection);
+                OnGrabReleased?.Invoke(this);
             }
             grabComponent = null;
         }

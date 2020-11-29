@@ -45,7 +45,6 @@ public class AIBoxThrower : Controller
         ThrowComponent targetBox = null;
         int targetLayer = 1 << LayerMask.NameToLayer("MovableObject");
         var centerPt = field.transform.TransformPoint(field.transform.position);
-        Debug.Log("center pt = " + centerPt.ToString());
         var colliders = Physics2D.OverlapBoxAll(field.transform.position, field.BoxSize, 360.0f, targetLayer);
         if (colliders != null && colliders.Length > 0 )
         {
@@ -81,7 +80,7 @@ public class AIBoxThrower : Controller
             yield return null;
         }
         targetComp = null;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.0f);
     }
 
     IEnumerator TryThrowBoxToTheOpponent()
@@ -101,6 +100,6 @@ public class AIBoxThrower : Controller
             HandleThrow();
             yield return null;
         }
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.5f);
     }
 }
