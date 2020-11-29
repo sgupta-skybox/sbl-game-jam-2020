@@ -20,4 +20,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GOOD WORLDS/IntroGrabbaleBox.unity
     guid: 719143ab8e6aac84e8c3f85855a3f8da
+  - enabled: 1
+    path: Assets/Scenes/GOOD WORLDS/IntroThrowableBox.unity
+    guid: c897c1343b2ca9440beb5b03eb160ede
+  - enabled: 1
+    path: Assets/Scenes/GOOD WORLDS/FirstMimicPuzzleScene.unity
+    guid: a20aaa41793eab443a2c30a252b53ead
+  - enabled: 1
+    path: Assets/Scenes/GOOD WORLDS/SecondMimicPuzzleScene.unity
+    guid: 68515c5b84f53eb49842cd1176dc96f3
+  - enabled: 1
+    path: Assets/Scenes/GOOD WORLDS/Hot Potato.unity
+    guid: 71e6d7c2f192f25419af58dfec640917
+  - enabled: 1
+    path: Assets/Scenes/GOOD WORLDS/Bouncy Projectiles.unity
+    guid: a65930b4ae889ce41903c0f431364489
   m_configObjects: {}
