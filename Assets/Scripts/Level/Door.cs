@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : TriggerableBase
 {
     [SerializeField]
     GameObject closedSprite;
@@ -28,5 +28,15 @@ public class Door : MonoBehaviour
     public void ToggleDoor()
     {
         OpenDoor(!isOpened);
+    }
+
+    protected override void OnTriggered()
+    {
+        ToggleDoor();
+    }
+
+    protected override void OnUntriggered()
+    {
+        ToggleDoor();
     }
 }
