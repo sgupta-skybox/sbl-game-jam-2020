@@ -14,6 +14,13 @@ public class ProjectileSpawner : MonoBehaviour
     AudioClip FireSound;
 
     AudioManager audioManager;
+    GameObject baseSprite;
+
+    private void Start()
+    {
+        if (baseSprite)
+            baseSprite.transform.localRotation = Quaternion.Inverse(transform.rotation);
+    }
 
     void OnEnable()
 	{

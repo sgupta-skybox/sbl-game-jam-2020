@@ -70,6 +70,11 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         // maybe switch to get axis raw?
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -258,6 +263,7 @@ public class Controller : MonoBehaviour
             diedText.enabled = true;
         }
         Speed = 0;
+        animator.SetTrigger("Death");
         GetComponentInChildren<SpriteRenderer>().color = Color.grey;
         StartCoroutine(WaitAndRestart());
     }
