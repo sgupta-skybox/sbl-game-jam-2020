@@ -155,3 +155,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GrabColor: {r: 1, g: 0, b: 0, a: 1}
   HightlightColor: {r: 0, g: 1, b: 0, a: 1}
+  sprite: {fileID: 6656008416289579364}

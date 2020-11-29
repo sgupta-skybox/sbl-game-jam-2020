@@ -9,6 +9,7 @@ public class GrabComponent : MonoBehaviour
     [SerializeField]
     Color HightlightColor = Color.green;
 
+    [SerializeField]
     SpriteRenderer sprite;
     Color normalColor;
     bool isHighlited;
@@ -16,7 +17,6 @@ public class GrabComponent : MonoBehaviour
 
     private void Awake()
     {
-        sprite = gameObject.GetComponent<SpriteRenderer>();
         if (sprite)
         {
             normalColor = sprite.color;
