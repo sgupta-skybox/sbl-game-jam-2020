@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GOOD WORLDS/Complex Puzzle All Mechanics.unity
     guid: 28dab4476867c9c45bbf4941460d450c
   - enabled: 1
-    path: Assets/Scenes/GOOD WORLDS/FifthScene.unity
+    path: Assets/Scenes/GOOD WORLDS/Lots of Projectiles.unity
     guid: 324e0a3de565b3d458ba765462205fd3
+  - enabled: 1
+    path: Assets/Scenes/GOOD WORLDS/IntroGrabbaleBox.unity
+    guid: 719143ab8e6aac84e8c3f85855a3f8da
   m_configObjects: {}

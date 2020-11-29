@@ -21,17 +21,6 @@ public class BoxDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( numBoxes <= 0)
-        {
-            if( teamId == 0 )
-            {
-                Debug.LogWarning("You Won!!");
-            }
-            else
-            {
-                Debug.LogWarning("You Die!!");
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
