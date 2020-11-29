@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Win
       objectReference: {fileID: 0}
+    - target: {fileID: 1063966266695530333, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
+      propertyPath: nextScene
+      value: Hot Potato
+      objectReference: {fileID: 0}
     - target: {fileID: 1063966266695530334, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
       propertyPath: m_Size.y
       value: 7.68

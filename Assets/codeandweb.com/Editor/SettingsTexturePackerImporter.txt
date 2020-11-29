@@ -5,5 +5,5 @@ tpsheetFileNames:
 textureFileNames:
 - Assets/Art/Sprites/spriteSheet.png
 normalmapFileNames:
-- Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
 enableDebugOutput: 0

@@ -145,6 +145,7 @@ MonoBehaviour:
   GrabRadiusMultiplier: 1.2
   movementVelocity: {x: 0, y: 0}
   SpriteTurnSpeed: 5
+  facingRight: 1
   field: {fileID: 1733575006}
   oppField: {fileID: 2137420826}
 --- !u!1001 &306953213
@@ -541,9 +542,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Win
       objectReference: {fileID: 0}
+    - target: {fileID: 1063966266695530333, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
+      propertyPath: nextScene
+      value: Complex Puzzle All Mechanics
+      objectReference: {fileID: 0}
     - target: {fileID: 1063966266695530335, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
       propertyPath: m_RootOrder
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063966266695530335, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 1063966266695530335, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -551,7 +560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1063966266695530335, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.34
+      value: -18.5
       objectReference: {fileID: 0}
     - target: {fileID: 1063966266695530335, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
       propertyPath: m_LocalPosition.z

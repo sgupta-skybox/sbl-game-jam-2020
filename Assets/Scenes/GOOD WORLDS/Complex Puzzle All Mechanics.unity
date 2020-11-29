@@ -342,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52068254}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2848,7 +2848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1063966266695530333, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
       propertyPath: nextScene
-      value: Advanced Box Pushing
+      value: Lots of Projectiles
       objectReference: {fileID: 0}
     - target: {fileID: 1063966266695530335, guid: 0da96bb37da82b04f8b13d2976d8ecd9, type: 3}
       propertyPath: m_RootOrder
