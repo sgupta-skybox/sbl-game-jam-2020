@@ -9,6 +9,10 @@ public class ThrowComponent : MonoBehaviour
     float ThrowSpeed = 10.0f;
 
     Rigidbody2D ownRigidbody2D;
+    // HACK : hacky way to check if this component has thrown way
+    // to determine make sleep when speed goes down.
+    bool isThrew = false;
+    bool hasThrown = false;
     void Start()
     {
         ownRigidbody2D = GetComponent<Rigidbody2D>();
@@ -34,6 +38,7 @@ public class ThrowComponent : MonoBehaviour
         // rigid body would lose its velocity in some certain cases
         // AddForce gives its force more reliably.
         ownRigidbody2D.AddForce(throwDirection * ThrowSpeed * 50);
+        isThrew = true;
     }
 
     void GrabReleased(Controller parent)
@@ -60,9 +65,22 @@ public class ThrowComponent : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!transform.parent && ownRigidbody2D.IsSleeping() )
+        if (!transform.parent)
         {
-            ownRigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
+            if (isThrew && ownRigidbody2D.velocity.sqrMagnitude > 1.0f)
+            {
+                isThrew = false;
+                hasThrown = true;
+            }
+            if (hasThrown && ownRigidbody2D.velocity.sqrMagnitude < 1.0f)
+            {
+                ownRigidbody2D.Sleep();
+                hasThrown = false;
+            }
+            if ( ownRigidbody2D.IsSleeping())
+            {
+                ownRigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
         }
     }
 }
