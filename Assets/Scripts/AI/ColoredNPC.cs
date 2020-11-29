@@ -24,7 +24,7 @@ public class ColoredNPC : MonoBehaviour
 	}
 
 	void Die()
-	{		
+	{
 		GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 		GetComponent<SpriteRenderer>().color = Color.grey;
 		GetComponent<Mimic>().SetAlive( false );
