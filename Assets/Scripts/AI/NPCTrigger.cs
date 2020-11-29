@@ -42,8 +42,14 @@ public class NPCTrigger : TriggerableBase
 	{
 		if (collision.gameObject == triggerTarget)
 		{
+			var comp = collision.GetComponent<ColoredNPC>();
+			if (comp && !comp.alive)
+			{
+				return;
+			}
+
 			if (spriteRenderer)
-				spriteRenderer.color = defaultColor;
+			spriteRenderer.color = defaultColor;
 			triggerables.ForEach(trigger => trigger.IsTriggered = true);
 			if (triggerManager)
 				triggerManager.Untriggered();

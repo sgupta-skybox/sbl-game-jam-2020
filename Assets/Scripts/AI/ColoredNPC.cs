@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class ColoredNPC : MonoBehaviour
 {
-	// Start is called before the first frame update
+	// Start is called before the first frame update\
+	public bool alive = true;
+	Color defaultColor;
 
 	void Start()
 	{
-		
+		defaultColor = GetComponent<SpriteRenderer>().color;
+		if (!alive)
+		{
+			Die();
+		}
 	}
 
 	// Update is called once per frame
@@ -19,30 +25,31 @@ public class ColoredNPC : MonoBehaviour
 
 	void Die()
 	{		
-		GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+		GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 		GetComponent<SpriteRenderer>().color = Color.grey;
-		Destroy(GetComponent<Mimic>());
+		GetComponent<Mimic>().SetAlive( false );
+		alive = false;
+	}
+
+	void Resurrect()
+	{
+		GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+		GetComponent<SpriteRenderer>().color = defaultColor;
+		GetComponent<Mimic>().enabled = true;
+		GetComponent<Mimic>().SetAlive( true );
+		alive = true;
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (!GetComponent<Mimic>())
-			return;
-
-		else if (collision.gameObject.tag == "Assasin")
+		if (collision.gameObject.tag == "Assasin" && alive)
 		{
 			Die();
 		}
 
-		else if ( collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<Controller>())
+		else if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<Controller>() && !alive)
 		{
-			if( gameObject.tag == "Assasin")
-			{
-				gameObject.GetComponent<Controller>().enabled = true;
-				Destroy(collision.gameObject.GetComponent<Controller>());
-				collision.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.grey;
-				Destroy(gameObject.GetComponent<Mimic>());
-			}
+			Resurrect();
 		}
 	}
 }

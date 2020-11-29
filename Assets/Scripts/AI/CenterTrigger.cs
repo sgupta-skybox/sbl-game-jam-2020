@@ -8,8 +8,11 @@ public class CenterTrigger : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		triggerables.ForEach(trigger => trigger.IsTriggered = true);
-		Destroy(gameObject);
+		if( collision.gameObject.tag == "Player")
+		{
+			triggerables.ForEach(trigger => trigger.IsTriggered = true);
+			Destroy(gameObject);
+		}
 	}
 
 }

@@ -25,6 +25,8 @@ public class Mimic : TriggerableBase
 	private Transform myTransform;
 	private Rigidbody2D myRigidBody;
 
+	bool alive = true;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -102,8 +104,14 @@ public class Mimic : TriggerableBase
 		myRigidBody.MovePosition(transform.position + targetDeltaPosition * speedModifier);
 	}
 
+	public void SetAlive(bool _alive)
+	{
+		alive = _alive;
+		enabled = alive && IsTriggered;
+	}
+
 	protected override void OnTriggered()
 	{
-		enabled = true;
+		enabled = alive;
 	}
 }
