@@ -240,6 +240,7 @@ public class Controller : MonoBehaviour
             diedText.enabled = true;
         }
         Speed = 0;
+        animator.SetBool("Death", true);
         GetComponentInChildren<SpriteRenderer>().color = Color.grey;
         StartCoroutine(WaitAndRestart());
     }
