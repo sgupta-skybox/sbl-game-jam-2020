@@ -9,7 +9,6 @@ public class ThrowComponent : MonoBehaviour
     float ThrowSpeed = 10.0f;
 
     Rigidbody2D ownRigidbody2D;
-    Vector2 localOffset;
     void Start()
     {
         ownRigidbody2D = GetComponent<Rigidbody2D>();
@@ -24,7 +23,6 @@ public class ThrowComponent : MonoBehaviour
     {
         ownRigidbody2D.velocity = Vector2.zero;
         ownRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-        localOffset = transform.localPosition;
     }
 
     public void Throw(Vector2 throwDirection)
@@ -36,7 +34,15 @@ public class ThrowComponent : MonoBehaviour
     {
         if (transform.parent)
         {
-            transform.localPosition = localOffset;
+            var controller = transform.parent.GetComponent<Controller>();
+            if (controller)
+            {
+                var dir = controller.movementVelocity.normalized;
+                if (dir != Vector2.zero)
+                {
+                    this.transform.position = transform.parent.position + dir.ToVector3() * controller.ColliderRadius * 2;
+                }
+            }
         }
     }
 
