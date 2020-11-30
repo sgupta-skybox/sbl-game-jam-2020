@@ -197,9 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fb8167be42ec14c92c830abe43331a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 8
   deathTimer: 0
-  GrabRadiusMultiplier: 1.2
+  GrabRadiusMultiplier: 2
   movementVelocity: {x: 0, y: 0}
   SpriteTurnSpeed: 5
   facingRight: 1
@@ -208,7 +208,7 @@ MonoBehaviour:
   field: {fileID: 1733575006}
   oppField: {fileID: 2137420826}
   cooldownAfterGrab: 100
-  cooldownAfterThrow: 0.1
+  cooldownAfterThrow: 0.4
 --- !u!1001 &306953213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1540,7 +1540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7159855417167293809, guid: bad15f75563ba0f4e88a11b8024f3bae, type: 3}
       propertyPath: GrabRadiusMultiplier
-      value: 1.61
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7159855417167293811, guid: bad15f75563ba0f4e88a11b8024f3bae, type: 3}
       propertyPath: m_RootOrder
