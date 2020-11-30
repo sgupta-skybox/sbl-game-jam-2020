@@ -15,6 +15,7 @@ public class Door : TriggerableBase
     private void Awake()
     {
         collider = GetComponent<Collider2D>();
+        OpenDoor(false);
     }
 
     public void OpenDoor( bool open )
