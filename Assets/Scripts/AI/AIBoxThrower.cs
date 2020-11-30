@@ -11,6 +11,10 @@ public class AIBoxThrower : Controller
     [SerializeField]
     BoxDetector oppField;
     Vector2 targetThorwingPos;
+
+    public int cooldownAfterGrab = 300;
+    public float cooldownAfterThrow = 1.5f;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -52,10 +56,10 @@ public class AIBoxThrower : Controller
             foreach( var collider in colliders )
             {
                 var box = collider.GetComponent<ThrowComponent>();
-                if ( box != null )
+                if ( box != null && box.transform.position.x > 0)
                 {
                     var distSq = (box.transform.position - transform.position).sqrMagnitude;
-                    if( distSq < closestDistSq )
+                    if(distSq < closestDistSq )
                     {
                         closestDistSq = distSq;
                         targetBox = box;
@@ -80,7 +84,7 @@ public class AIBoxThrower : Controller
             yield return null;
         }
         targetComp = null;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.1f);
     }
 
     IEnumerator TryThrowBoxToTheOpponent()
@@ -90,7 +94,7 @@ public class AIBoxThrower : Controller
         while (grabComponent != null)
         {
             int tick = 0;
-            while (tick++ < 300)
+            while (tick++ < cooldownAfterGrab)
             {
                 var dx = x - transform.position.x;
                 var dy = y - transform.position.y;
@@ -100,6 +104,11 @@ public class AIBoxThrower : Controller
             HandleThrow();
             yield return null;
         }
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(cooldownAfterThrow);
     }
+
+    public void LevelFinish()
+	{
+        StopAllCoroutines();
+	}
 }

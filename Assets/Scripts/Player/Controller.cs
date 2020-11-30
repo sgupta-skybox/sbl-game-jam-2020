@@ -37,6 +37,14 @@ public class Controller : MonoBehaviour
 
     public bool facingRight = true;
 
+    AudioManager audioManager;
+
+    [SerializeField]
+    AudioClip GrabSound;
+
+    [SerializeField]
+    AudioClip ThrowSound;
+
     public float ColliderRadius
     {
         get { return controllerCollider != null ? controllerCollider.radius * GrabRadiusMultiplier : 0.0f; }
@@ -45,6 +53,8 @@ public class Controller : MonoBehaviour
 
     protected virtual void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag(AudioManager.NAME).GetComponent<AudioManager>();
+
         movementVelocity = Vector2.zero;
         controllerCollider = GetComponent<CircleCollider2D>();
         controllerBody = GetComponent<Rigidbody2D>();
@@ -149,6 +159,10 @@ public class Controller : MonoBehaviour
                 grabComponent = GetNearestGrabComponents();
                 if (grabComponent)
                 {
+                    if (GrabSound)
+                    {
+                        audioManager.PlayClip(GrabSound);
+                    }
                     grabComponent.gameObject.transform.SetParent(transform);
                     ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
                     if (throwComponent)
@@ -181,7 +195,11 @@ public class Controller : MonoBehaviour
             ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
             if (throwComponent)
             {
-                Vector2 throwDirection = (throwComponent.transform.position - transform.position);
+                if (ThrowSound)
+                {
+                    audioManager.PlayClip(ThrowSound);
+                }
+                Vector2 throwDirection = throwComponent.transform.position - transform.position;
                 throwComponent.Throw(throwDirection.normalized);
                 OnGrabReleased?.Invoke(this);
             }
