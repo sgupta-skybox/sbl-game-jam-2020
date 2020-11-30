@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class HotPotatoWinCondition : MonoBehaviour
 {
+    [SerializeField]
+    Controller player;
+
     public GameObject[] gameObjects;
     public TriggerableBase doorTrigger;
     public AIBoxThrower enemy;
@@ -51,6 +54,13 @@ public class HotPotatoWinCondition : MonoBehaviour
         if (index >= 0)
         {
             triggeredObjects[index] = false;
+        }
+
+        if(System.Array.TrueForAll(triggeredObjects, triggeredObject => !triggeredObject))
+		{
+            doorTrigger.IsTriggered = true;
+            enemy.LevelFinish();
+            player.Die();
         }
     }
 
