@@ -404,6 +404,8 @@ MonoBehaviour:
   - {fileID: 8641834070559330045}
   - {fileID: 326790757897511773}
   - {fileID: 4936950277548025319}
+  AlmostThereSound: {fileID: 8300000, guid: da910ee06c2e5ef4284bfa1b920557a5, type: 3}
+  SuccessSound: {fileID: 8300000, guid: 27edf94b1835e424092323b954b4e7c5, type: 3}
 --- !u!222 &3014450653359576284
 CanvasRenderer:
   m_ObjectHideFlags: 0
