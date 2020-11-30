@@ -311,6 +311,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 2097889698422365749, guid: 60483cb12227052449709753ca8d8814, type: 3}
   SpawnCooldown: 1
   FireSound: {fileID: 8300000, guid: e15b76202ebcf414bb90a3f7f06f01a0, type: 3}
+  baseSprite: {fileID: 879734769868555845}
 --- !u!1 &7749882325255038062
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GrabColor: {r: 1, g: 0, b: 0, a: 1}
   HightlightColor: {r: 0, g: 1, b: 0, a: 1}
-  sprite: {fileID: 0}
+  sprite: {fileID: 5370207314317215209}
 --- !u!1001 &4717490899962683487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22,6 +22,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 860517258424542646, guid: c9ca313bdb4e3b348bd52c6ffaafd341, type: 3}
+      propertyPath: m_Color.b
+      value: 0.35955855
+      objectReference: {fileID: 0}
+    - target: {fileID: 860517258424542646, guid: c9ca313bdb4e3b348bd52c6ffaafd341, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9408194
+      objectReference: {fileID: 0}
+    - target: {fileID: 860517258424542646, guid: c9ca313bdb4e3b348bd52c6ffaafd341, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9433962
+      objectReference: {fileID: 0}
     - target: {fileID: 6569323708943851802, guid: c9ca313bdb4e3b348bd52c6ffaafd341, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -95,5 +107,10 @@ PrefabInstance:
 --- !u!1 &1899685480552694081 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6569323708943851806, guid: c9ca313bdb4e3b348bd52c6ffaafd341, type: 3}
+  m_PrefabInstance: {fileID: 4717490899962683487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5370207314317215209 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 860517258424542646, guid: c9ca313bdb4e3b348bd52c6ffaafd341, type: 3}
   m_PrefabInstance: {fileID: 4717490899962683487}
   m_PrefabAsset: {fileID: 0}
