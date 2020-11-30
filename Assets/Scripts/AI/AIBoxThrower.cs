@@ -74,8 +74,13 @@ public class AIBoxThrower : Controller
     {
         while(grabComponent == null)
         {
-            var direction = (targetComp.transform.position - transform.position).normalized;
-            movementVelocity = new Vector2(direction.x, direction.y) * Speed;
+            if (targetComp.transform.position.x < 0)
+            {
+                break;
+            }
+
+            var direction = targetComp.transform.position - transform.position;
+            movementVelocity = new Vector2(direction.x, direction.y).normalized * Speed;
             var comp = GetNearestGrabComponents();
             if(comp != null )
             {
