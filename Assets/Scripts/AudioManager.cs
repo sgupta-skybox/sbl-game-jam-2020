@@ -17,12 +17,12 @@ public class AudioManager : MonoBehaviour
         clipsPlayedThisFrame.Clear();
     }
 
-    public void PlayClip(AudioClip audioClip)
+    public void PlayClip(AudioClip audioClip, float volume = 0.1f)
     {
         if (!clipsPlayedThisFrame.Contains(audioClip))
         {
             clipsPlayedThisFrame.Add(audioClip);
-            AudioSource.PlayClipAtPoint(audioClip, Vector2.zero);
+            AudioSource.PlayClipAtPoint(audioClip, Vector2.zero, volume);
         }
     }
 }

@@ -94,11 +94,6 @@ public class Controller : MonoBehaviour
             {
                 HandleGrab(grabComponent == null);
             }
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                HandleThrow();
-            }
         }
 
         CheckGrabComponents();
@@ -181,6 +176,18 @@ public class Controller : MonoBehaviour
                 grabComponent.gameObject.transform.SetParent(null);
                 grabComponent.transform.position = position;
                 grabComponent.transform.localPosition = position;
+
+                ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
+                if (throwComponent)
+                {
+                    if (ThrowSound)
+                    {
+                        audioManager.PlayClip(ThrowSound);
+                    }
+                    Vector2 throwDirection = throwComponent.transform.position - transform.position;
+                    throwComponent.Throw(throwDirection.normalized);
+                }
+
                 grabComponent = null;
                 OnGrabReleased?.Invoke(this);
             }
@@ -206,7 +213,6 @@ public class Controller : MonoBehaviour
             grabComponent = null;
         }
     }
-
 
     protected GrabComponent GetNearestGrabComponents()
     {
