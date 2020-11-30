@@ -34,7 +34,9 @@ public class ThrowComponent : MonoBehaviour
 
     public void Throw(Vector2 throwDirection)
     {
+        print(throwDirection);
         //ownRigidbody2D.velocity = throwDirection * ThrowSpeed;
+        print(ownRigidbody2D.velocity);
         // rigid body would lose its velocity in some certain cases
         // AddForce gives its force more reliably.
         ownRigidbody2D.AddForce(throwDirection * ThrowSpeed * 50);

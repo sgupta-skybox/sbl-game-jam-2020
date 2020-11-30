@@ -181,8 +181,8 @@ public class Controller : MonoBehaviour
             ThrowComponent throwComponent = grabComponent.gameObject.GetComponent<ThrowComponent>();
             if (throwComponent)
             {
-                Vector2 throwDirection = (throwComponent.transform.position - transform.position).normalized;
-                throwComponent.Throw(throwDirection);
+                Vector2 throwDirection = (throwComponent.transform.position - transform.position);
+                throwComponent.Throw(throwDirection.normalized);
                 OnGrabReleased?.Invoke(this);
             }
             grabComponent = null;
