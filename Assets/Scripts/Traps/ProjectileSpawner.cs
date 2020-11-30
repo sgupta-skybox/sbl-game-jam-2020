@@ -38,7 +38,7 @@ public class ProjectileSpawner : MonoBehaviour
             if (FireSound)
             {
                 if(audioManager)
-                    audioManager.PlayClip(FireSound);
+                    audioManager.PlayClip(FireSound, 0.2f);
             }
             Instantiate(ProjectilePrefab, transform.position + (transform.right * 3), transform.rotation);
             yield return new WaitForSeconds(SpawnCooldown * 1.0f);
