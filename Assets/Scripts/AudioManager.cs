@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
         clipsPlayedThisFrame.Clear();
     }
 
-    public void PlayClip(AudioClip audioClip, float volume = 0.1f)
+    public void PlayClip(AudioClip audioClip, float volume = 1.0f)
     {
         if (!clipsPlayedThisFrame.Contains(audioClip))
         {
