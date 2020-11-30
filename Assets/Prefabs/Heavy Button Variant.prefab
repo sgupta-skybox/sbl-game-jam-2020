@@ -24,6 +24,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: SuccessSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 27edf94b1835e424092323b954b4e7c5, type: 3}
+    - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
+      propertyPath: AlmostThereSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da910ee06c2e5ef4284bfa1b920557a5, type: 3}
+    - target: {fileID: 8208000988055108035, guid: 57537dedc4588c94789c957c9863abf8, type: 3}
       propertyPath: numBoxesToTrigger
       value: 2
       objectReference: {fileID: 0}

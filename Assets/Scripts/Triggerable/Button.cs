@@ -23,9 +23,17 @@ public class Button : TriggerableBase
     [SerializeField]
     List<GameObject> buttons;
 
+    [SerializeField]
+    AudioClip AlmostThereSound;
+    [SerializeField]
+    AudioClip SuccessSound;
+
+    AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag(AudioManager.NAME).GetComponent<AudioManager>();
         playerLayerMask = LayerMask.NameToLayer("Player");
         movableObjectLayerMask = LayerMask.NameToLayer("MovableObject");
         UpdateButtonState();
@@ -107,6 +115,17 @@ public class Button : TriggerableBase
         {
             IsTriggered = true;
             timerStarted = false;
+            if (SuccessSound)
+            {
+                audioManager.PlayClip(SuccessSound);
+            }
+        }
+        else
+        {
+            if (AlmostThereSound)
+            {
+                audioManager.PlayClip(AlmostThereSound);
+            }
         }
         UpdateButtonState();
     }
