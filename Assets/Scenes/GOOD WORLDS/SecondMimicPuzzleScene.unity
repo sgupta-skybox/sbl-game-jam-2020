@@ -570,7 +570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: downMimicDirection
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: leftMimicDirection
@@ -578,7 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: rightMimicDirection
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051556, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: m_Mass
@@ -1839,19 +1839,19 @@ PrefabInstance:
       objectReference: {fileID: 1539570924}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: upMimicDirection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
-      propertyPath: downMimicDirection
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
+      propertyPath: downMimicDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: leftMimicDirection
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: rightMimicDirection
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051556, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: m_Mass
@@ -2889,7 +2889,7 @@ PrefabInstance:
       objectReference: {fileID: 1539570924}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: upMimicDirection
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: downMimicDirection
@@ -2897,7 +2897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: leftMimicDirection
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: rightMimicDirection
@@ -3015,19 +3015,19 @@ PrefabInstance:
       objectReference: {fileID: 1539570924}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: upMimicDirection
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
-      propertyPath: downMimicDirection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
+      propertyPath: downMimicDirection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: leftMimicDirection
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051555, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: rightMimicDirection
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2045779268079051556, guid: e2c04a605f9789747bc3e1de52fa61b6, type: 3}
       propertyPath: m_Mass
